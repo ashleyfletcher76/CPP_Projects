@@ -6,13 +6,13 @@
 /*   By: asfletch <asfletch@student.42heilbronn>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 09:59:52 by asfletch          #+#    #+#             */
-/*   Updated: 2024/03/30 11:53:38 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:11:22 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : FixedValue(0)
+Fixed::Fixed() : _FixedValue(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -22,7 +22,7 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& CopyConstruct) : FixedValue(CopyConstruct.FixedValue)
+Fixed::Fixed(const Fixed& CopyConstruct) : _FixedValue(CopyConstruct._FixedValue)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
@@ -35,24 +35,26 @@ Fixed &Fixed::operator=(const Fixed& CopyAssignment)
 	return (*this);
 }
 
-Fixed::Fixed(const int IntToConvert) : FixedValue(IntToConvert << Fixed::FractionalBit)
+Fixed::Fixed(const int IntToConvert)
 {
 	std::cout << "Int constructor called" << std::endl;
+	_FixedValue = IntToConvert << _FractionalBit;
 }
 
-Fixed::Fixed(const float FloatToConvert) : FixedValue(roundf(FloatToConvert * (1 << Fixed::FractionalBit)))
+Fixed::Fixed(const float FloatToConvert)
 {
 	std::cout << "Float constructor called" << std::endl;
+	_FixedValue = roundf(FloatToConvert * (1 << _FractionalBit));
 }
 
 int Fixed::toInt(void) const
 {
-	return (FixedValue >> FractionalBit);
+	return (_FixedValue >> _FractionalBit);
 }
 
 float Fixed::toFloat( void ) const
 {
-	return ((float)FixedValue / (float)(1 << FractionalBit));
+	return ((float)_FixedValue / (float)(1 << _FractionalBit));
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& num)
@@ -63,10 +65,10 @@ std::ostream& operator<<(std::ostream& os, const Fixed& num)
 
 int Fixed::getRawBits( void ) const
 {
-	return (this->FixedValue);
+	return (this->_FixedValue);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->FixedValue = raw;
+	this->_FixedValue = raw;
 }

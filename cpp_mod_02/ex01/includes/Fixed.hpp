@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 09:59:02 by asfletch          #+#    #+#             */
-/*   Updated: 2024/03/30 11:20:49 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:06:19 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 class Fixed
 {
 	private:
-		int	FixedValue;
-		static const int FractionalBit = 8;
+		int	_FixedValue;
+		static const int _FractionalBit = 8;
 
 	public:
 		Fixed(); //default
