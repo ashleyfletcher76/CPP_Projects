@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: asfletch <asfletch@student.42heilbronn>    +#+  +:+       +#+         #
+#    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/03/30 10:39:38 by asfletch         ###   ########.fr        #
+#    Updated: 2024/03/31 16:07:20 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

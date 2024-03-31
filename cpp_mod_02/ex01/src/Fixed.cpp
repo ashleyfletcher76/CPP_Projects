@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asfletch <asfletch@student.42heilbronn>    +#+  +:+       +#+        */
+/*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 09:59:52 by asfletch          #+#    #+#             */
-/*   Updated: 2024/03/30 12:11:22 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/03/31 12:12:45 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,32 +35,10 @@ Fixed &Fixed::operator=(const Fixed& CopyAssignment)
 	return (*this);
 }
 
-Fixed::Fixed(const int IntToConvert)
+std::ostream& operator<<(std::ostream& ostream, const Fixed& num)
 {
-	std::cout << "Int constructor called" << std::endl;
-	_FixedValue = IntToConvert << _FractionalBit;
-}
-
-Fixed::Fixed(const float FloatToConvert)
-{
-	std::cout << "Float constructor called" << std::endl;
-	_FixedValue = roundf(FloatToConvert * (1 << _FractionalBit));
-}
-
-int Fixed::toInt(void) const
-{
-	return (_FixedValue >> _FractionalBit);
-}
-
-float Fixed::toFloat( void ) const
-{
-	return ((float)_FixedValue / (float)(1 << _FractionalBit));
-}
-
-std::ostream& operator<<(std::ostream& os, const Fixed& num)
-{
-	os << num.toFloat();
-	return (os);
+	ostream << num.toFloat();
+	return (ostream);
 }
 
 int Fixed::getRawBits( void ) const

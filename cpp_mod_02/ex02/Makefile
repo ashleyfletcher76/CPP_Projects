@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/03/31 16:08:33 by asfletch         ###   ########.fr        #
+#    Updated: 2024/03/31 16:08:07 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,13 @@ COLOUR_END = \033[0m
 
 CC = c++
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98 
+CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98
 SRCS = main.cpp Fixed.cpp \
 
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-NAME = Fixed
+NAME = FixedUpgradeFurther
 
 $(NAME) : $(OBJ_DIR) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
