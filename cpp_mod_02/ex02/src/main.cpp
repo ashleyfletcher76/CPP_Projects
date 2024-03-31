@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 10:00:18 by asfletch          #+#    #+#             */
-/*   Updated: 2024/03/31 16:02:14 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/03/31 16:09:47 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,13 @@ int main( void )
 // 	return 0;
 // }
 
+// Original a = 0
+// precrement a = 0.00390625
+// Pre Modified a = 0.00390625
+// Postcrement a = 0.00390625
+// Post Modified a = 0.0078125
+// b = 10.1016
+// e = 2.52734
+// Max of a and b = 10.1016
+// Min of c and d = 5
 
