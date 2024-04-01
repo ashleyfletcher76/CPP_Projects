@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Constructors.cpp                                   :+:      :+:    :+:   */
+/*   ClapConstru.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 12:07:28 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/01 14:45:06 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:44:42 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(const std::string& name) : _name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
+ClapTrap::ClapTrap(const std::string& name) : _name(name), _HitPoints(100), _EnergyPoints(50), _AttackDamage(20)
 {
 	std::cout << MAGENTA << name << "'s constructor intialized" << RESET << std::endl;
 }
