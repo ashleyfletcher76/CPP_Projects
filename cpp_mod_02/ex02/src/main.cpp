@@ -6,25 +6,11 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 10:00:18 by asfletch          #+#    #+#             */
-/*   Updated: 2024/03/31 16:09:47 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/01 09:30:04 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-Fixed::Fixed(const int IntToConvert)
-{
-	//std::cout << "Int constructor called" << std::endl;
-	// Converts the fixed point value to an integer. Num * 256(2^8)
-	_FixedValue = IntToConvert << _FractionalBit;
-}
-
-Fixed::Fixed(const float FloatToConvert)
-{
-	//std::cout << "Float constructor called" << std::endl;
-	// Converts the fixed-point value to a FP number. Num * 256(2^8)
-	_FixedValue = roundf(FloatToConvert * (1 << _FractionalBit));
-}
 
 int Fixed::toInt(void) const
 {
