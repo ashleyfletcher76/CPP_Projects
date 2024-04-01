@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 09:51:53 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/01 14:05:42 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/01 16:53:05 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 
 		int	CheckConditions(const std::string& target);
+		void PrintStatus( void );
 };
 
 #endif

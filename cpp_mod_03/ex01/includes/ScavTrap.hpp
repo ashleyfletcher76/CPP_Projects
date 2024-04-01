@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:38:14 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/01 14:44:02 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:06:39 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@
 
 #include <iostream>
 #include <string>
+#include "ClapTrap.hpp"
 
-class ScavTrap
+class ScavTrap : public ClapTrap
 {
 	private:
 
 	public:
-		ScavTrap();
+		ScavTrap(const std::string& name);
 		~ScavTrap();
 		ScavTrap(const ScavTrap& other);
 		ScavTrap& operator=(const ScavTrap& other);

@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/04/01 14:41:42 by asfletch         ###   ########.fr        #
+#    Updated: 2024/04/01 15:37:44 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ COLOUR_END = \033[0m
 CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98
-SRCS = main.cpp ClapTrap.cpp ClapConstru.cpp ScavTrap.cpp ScavConstru.cpp\
+SRCS = main.cpp ClapTrap.cpp ClapConstru.cpp ScavTrap.cpp \
 
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
