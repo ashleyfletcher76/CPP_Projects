@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:41:46 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 10:58:16 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:25:48 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,13 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 ScavTrap &ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other)
-		ClapTrap::operator=(other);
+	{
+		_HitPoints = other._HitPoints;
+		_EnergyPoints = other._EnergyPoints;
+		_AttackDamage = other._AttackDamage;
+		_name = other._name;
+		std::cout << MAGENTA << "ScavTrap" << other._name << "'s copy assignment initialized" << RESET << std::endl;
+	}
 	return (*this);
 }
 

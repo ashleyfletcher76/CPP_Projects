@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 12:36:04 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 15:02:44 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:47:57 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ void	SeventhCase( void )
 	ThirdPerson.guardGate();
 	ThirdPerson.beRepaired(60);
 	ThirdPerson.guardGate();
+	SecondPerson.PrintStatus();
 	FragTrap FourthPerson("Tesse");
 	FourthPerson.highFivesGuys();
 	FourthPerson.takeDamage(25);
@@ -147,19 +148,26 @@ void	EigthCase( void )
 {
 	DiamondTrap FirstPerson("Dave");
 
-	FirstPerson.PrintStatusDiamond();
-	// FirstPerson.attack("Johno");
-	// FirstPerson.beRepaired(10);
-	// FirstPerson.guardGate();
-	// FirstPerson.highFivesGuys();
-	// FirstPerson.takeDamage(10);
 	FirstPerson.whoAmI();
 	DiamondTrap SecondPerson("Jimmy");
-	SecondPerson.PrintStatusDiamond();
 	SecondPerson = FirstPerson;
-	SecondPerson.PrintStatusDiamond();
+	SecondPerson.PrintStatus();
+	FirstPerson.attack("Johnno");
 	DiamondTrap ThirdPerson = FirstPerson;
-	ThirdPerson.PrintStatusDiamond();
+	ThirdPerson.PrintStatus();
+	ThirdPerson.takeDamage(20);
+}
+
+void	NinthCase( void )
+{
+	DiamondTrap FirstPerson("Dave");
+
+	FirstPerson.PrintStatus();
+	FirstPerson.attack("Johno");
+	FirstPerson.beRepaired(10);
+	FirstPerson.guardGate();
+	FirstPerson.highFivesGuys();
+	FirstPerson.takeDamage(10);
 }
 
 int	main( void )
@@ -169,7 +177,8 @@ int	main( void )
 	// ThirdCase();
 	//FourthCase();
 	// FifthCase();
-	// SixthCase();
+	//SixthCase();
 	//SeventhCase();
 	EigthCase();
+	//NinthCase();
 }

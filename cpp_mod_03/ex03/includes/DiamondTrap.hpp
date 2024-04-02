@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 11:18:27 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 14:39:01 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:48:11 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		DiamondTrap(const DiamondTrap& other);
 		DiamondTrap& operator=(const DiamondTrap& other);
 		void whoAmI();
-		void PrintStatusDiamond( void );
 		using ScavTrap::attack;
 		using ScavTrap::CheckConditions;
 };

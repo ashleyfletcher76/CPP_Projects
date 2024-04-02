@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:41:46 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 15:17:27 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:32:32 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 20;
-	std::cout << MAGENTA << "ScavTrap constructor intialized" << RESET << std::endl;
+	std::cout << MAGENTA << "ScavTrap " << _name << "'s constructor intialized" << RESET << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -34,8 +34,11 @@ ScavTrap &ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other)
 	{
-		ClapTrap::operator=(other);
-		std::cout << MAGENTA << "ScavTrap" << other._name << "'s copy assignment initialized" << RESET << std::endl;
+		_HitPoints = other._HitPoints;
+		_EnergyPoints = other._EnergyPoints;
+		_AttackDamage = other._AttackDamage;
+		_name = other._name;
+		std::cout << MAGENTA << "ScavTrap " << other._name << "'s copy assignment initialized" << RESET << std::endl;
 	}
 	return (*this);
 }
