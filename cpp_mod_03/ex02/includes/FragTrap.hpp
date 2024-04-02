@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 09:43:59 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 09:48:01 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 11:04:19 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ class FragTrap : public ClapTrap
 		FragTrap(const FragTrap& other);
 		FragTrap& operator=(const FragTrap& other);
 
+		void attack(const std::string& target);
+		int	CheckConditions(const std::string& target);
 		void highFivesGuys( void );
 };
 

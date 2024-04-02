@@ -6,12 +6,13 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 12:36:04 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 11:00:12 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 11:15:34 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 void	FirstCase( void )
 {
@@ -96,8 +97,6 @@ void	FifthCase( void )
 	ClapTrap ThirdPerson("David");
 	ThirdPerson.PrintStatus();
 	FirstPerson.attack("Johno");
-	std::cout << RED << "First person's status" << RESET << std::endl;
-	FirstPerson.PrintStatus();
 	std::cout << RED << "Second person's status" << RESET << std::endl;
 	SecondPerson.PrintStatus();
 	std::cout << BLUE << "Copy assignment operator for third person" << RESET << std::endl;
@@ -122,12 +121,34 @@ void	SixthCase( void )
 	FourthPerson.PrintStatus();
 }
 
+void	SeventhCase( void )
+{
+	ClapTrap FirstPerson("Dezza");
+	FirstPerson.attack("jim");
+	ScavTrap SecondPerson("Tim");
+	SecondPerson.attack("Dezza");
+	SecondPerson.beRepaired(5);
+	SecondPerson.takeDamage(110);
+	ScavTrap ThirdPerson("Gary");
+	ThirdPerson.PrintStatus();
+	ThirdPerson = SecondPerson;
+	ThirdPerson.PrintStatus();
+	ThirdPerson.guardGate();
+	ThirdPerson.beRepaired(60);
+	ThirdPerson.guardGate();
+	FragTrap FourthPerson("Tesse");
+	FourthPerson.highFivesGuys();
+	FourthPerson.takeDamage(25);
+	FourthPerson.attack("Yasmin");
+}
+
 int	main( void )
 {
 	// FirstCase();
 	// SecondCase();
 	// ThirdCase();
-	FourthCase();
+	//FourthCase();
 	// FifthCase();
 	// SixthCase();
+	SeventhCase();
 }
