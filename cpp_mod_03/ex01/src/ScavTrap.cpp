@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:41:46 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/01 17:24:07 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 10:58:16 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 20;
-	std::cout << MAGENTA << "ScavTrap " << name << "'s constructor intialized" << RESET << std::endl;
+	std::cout << MAGENTA << "ScavTrap" << "'s constructor intialized" << RESET << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << MAGENTA << "ScavTrap " << _name << "'s destructor called!" << RESET << std::endl;
+	std::cout << MAGENTA << "ScavTrap" << "'s destructor called!" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
@@ -35,4 +35,52 @@ ScavTrap &ScavTrap::operator=(const ScavTrap& other)
 	if (this != &other)
 		ClapTrap::operator=(other);
 	return (*this);
+}
+
+int	ScavTrap::CheckConditions(const std::string& target)
+{
+	if (_HitPoints <= 0)
+	{
+		std::cout << RED << "ScavTrap " << _name << " is dead so cannot attack " << target << "!" <<RESET << std::endl;
+		return (1);
+	}
+	if (_EnergyPoints == 0)
+	{
+		std::cout << LIGHT_RED << "ScavTrap " << _name << " tried to attack " << target << " but didn't have enough energy!" << RESET << std::endl;
+		return (1);
+	}
+	if (_AttackDamage <= 0)
+	{
+		std::cout << YELLOW << "ScavTrap " << _name << " tries to attack " << target << " but has no Attack Damage. "
+			<< _name << " wastes energy whilst trying!" << RESET << std::endl;
+		std::cout << YELLOW << "No damage was inflicted." << RESET << std::endl;
+		_EnergyPoints--;
+		return (1);
+	}
+	return (0);
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (CheckConditions(target) == 1)
+		return ;
+	std::cout << YELLOW << "ScavTrap " << _name << " attacks " << target << " with " << _AttackDamage << " amount of damage!" << YELLOW << std::endl;
+	_EnergyPoints--;
+	PrintStatus();
+}
+
+void ScavTrap::guardGate( void )
+{
+	if (_HitPoints == 0)
+	{
+		std::cout << LIGHT_CYAN << _name << " cannot keep guard because he's dead." << RESET << std::endl;
+		return ;
+	}
+	if (_EnergyPoints == 0)
+	{
+		std::cout << LIGHT_YELLOW << _name << " has no energy so cannot keep guard." << RESET << std::endl;
+		return ;
+	}
+	std::cout << LIGHT_BLUE << _name << " is keeping guard cos he doesn't want anybody to eat his chicken nuggets!"
+		<< RESET << std::endl;
 }

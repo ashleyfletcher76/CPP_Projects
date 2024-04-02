@@ -6,63 +6,128 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 12:36:04 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/01 17:26:00 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 11:00:12 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-// int	main( void )
-// {
-// 	ClapTrap FirstPerson("Dave");
-// 	FirstPerson.attack("Johnathan");
-// 	FirstPerson.beRepaired(10);
-// 	FirstPerson.takeDamage(15);
-// 	FirstPerson.attack("Johnathan");
-// 	FirstPerson.beRepaired(5);
-
-// 	std::cout << "--------------" << std::endl;
-// 	std::cout << "--------------" << "\n" << std::endl;
-
-// 	ScavTrap SecondPerson("Cole");
-// 	SecondPerson.attack("Burty");
-// 	SecondPerson.beRepaired(0);
-// 	SecondPerson.takeDamage(85);
-// 	SecondPerson.takeDamage(20);
-// 	SecondPerson.attack("Burty");
-// 	SecondPerson.beRepaired(40);
-// 	SecondPerson.attack("Burty");
-// }
-
-int	main( void )
+void	FirstCase( void )
 {
+	std::cout << std::endl;
+	std::cout << "------TEST CASE 1--------" << std::endl;
+	std::cout << "-------------------------" << "\n" << std::endl;
 	ClapTrap FirstPerson("Dave");
 	FirstPerson.attack("Johnathan");
 	FirstPerson.beRepaired(10);
 	FirstPerson.takeDamage(25);
 	FirstPerson.attack("Johnathan");
 	FirstPerson.beRepaired(5);
+}
+
+void	SecondCase( void )
+{
+	std::cout << std::endl;
+	std::cout << "------TEST CASE 2--------" << std::endl;
+	std::cout << "-------------------------" << "\n" << std::endl;
+	ScavTrap FirstPerson("Derick");
+	FirstPerson.attack("Jimbo");
+	FirstPerson.beRepaired(10);
+	FirstPerson.takeDamage(25);
+	FirstPerson.guardGate();
+	FirstPerson.attack("Jimbo");
+	FirstPerson.beRepaired(5);
+}
+
+void	ThirdCase( void )
+{
+	std::cout << std::endl;
+	std::cout << "------TEST CASE 3--------" << std::endl;
+	std::cout << "-------------------------" << "\n" << std::endl;
+	ClapTrap FirstPerson("June");
+	for (int i = 0; i < 11; i++)
+		FirstPerson.attack("Target");
+	std::cout << "-------------\n";
+	std::cout << "-------------" << std::endl;
+	ScavTrap SecondPerson("Johno");
+	for (int i = 0; i < 11; i++)
+		SecondPerson.attack("Target");
+	SecondPerson.guardGate();
+	SecondPerson.takeDamage(120);
+	SecondPerson.guardGate();
+}
+
+void	FourthCase( void )
+{
+	std::cout << std::endl;
+	std::cout << "------TEST CASE 5--------" << std::endl;
+	std::cout << "-------------------------" << "\n" << std::endl;
+	ClapTrap FirstPerson("Dave");
+	FirstPerson.attack("Johnathan");
+	FirstPerson.beRepaired(10);
+	FirstPerson.takeDamage(15);
+	FirstPerson.attack("Johnathan");
+	FirstPerson.beRepaired(5);
 
 	std::cout << "--------------" << std::endl;
 	std::cout << "--------------" << "\n" << std::endl;
 
-	ScavTrap SecondPerson("Derick");
-	SecondPerson.attack("Jimbo");
-	SecondPerson.beRepaired(10);
-	SecondPerson.takeDamage(25);
-	SecondPerson.attack("Jimbo");
-	SecondPerson.beRepaired(5);
+	ScavTrap SecondPerson("Cole");
+	SecondPerson.attack("Burty");
+	SecondPerson.beRepaired(0);
+	SecondPerson.takeDamage(85);
+	SecondPerson.takeDamage(20);
+	SecondPerson.attack("Burty");
+	SecondPerson.beRepaired(40);
+	SecondPerson.attack("Burty");
 }
 
-// int	main( void )
-// {
-// 	ClapTrap FirstPerson("June");
-// 	for (int i = 0; i < 11; i++)
-// 		FirstPerson.attack("Target");
-// 	std::cout << "-------------\n";
-// 	std::cout << "-------------" << std::endl;
-// 	ClapTrap SecondPerson("Johno");
-// 	for (int i = 0; i < 11; i++)
-// 		SecondPerson.attack("Target");
-// }
+void	FifthCase( void )
+{
+	ClapTrap FirstPerson("Desmond");
+	ClapTrap SecondPerson = FirstPerson;
+
+	FirstPerson.PrintStatus();
+	SecondPerson.PrintStatus();
+
+	std::cout << "--------------" << std::endl;
+	std::cout << "--------------" << "\n" << std::endl;
+	ClapTrap ThirdPerson("David");
+	ThirdPerson.PrintStatus();
+	FirstPerson.attack("Johno");
+	std::cout << RED << "First person's status" << RESET << std::endl;
+	FirstPerson.PrintStatus();
+	std::cout << RED << "Second person's status" << RESET << std::endl;
+	SecondPerson.PrintStatus();
+	std::cout << BLUE << "Copy assignment operator for third person" << RESET << std::endl;
+	ThirdPerson = FirstPerson;
+	std::cout << RED << "Second person's status" << RESET << std::endl;
+	ThirdPerson.PrintStatus();
+}
+
+void	SixthCase( void )
+{
+	ClapTrap FirstPerson("Desmond");
+	ScavTrap SecondPerson("David");
+	ClapTrap ThirdPerson = FirstPerson;
+	ScavTrap FourthPerson("Johno");
+
+	FirstPerson.PrintStatus();
+	SecondPerson.PrintStatus();
+	ThirdPerson.PrintStatus();
+	FourthPerson.PrintStatus();
+	SecondPerson.attack("Dave");
+	FourthPerson = SecondPerson;
+	FourthPerson.PrintStatus();
+}
+
+int	main( void )
+{
+	// FirstCase();
+	// SecondCase();
+	// ThirdCase();
+	FourthCase();
+	// FifthCase();
+	// SixthCase();
+}

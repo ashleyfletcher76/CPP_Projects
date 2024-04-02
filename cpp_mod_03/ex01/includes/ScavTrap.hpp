@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:38:14 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/01 15:06:39 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 10:58:46 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ class ScavTrap : public ClapTrap
 		ScavTrap(const ScavTrap& other);
 		ScavTrap& operator=(const ScavTrap& other);
 
-		void guardGate();
+		void attack(const std::string& target);
+		int	CheckConditions(const std::string& target);
+		void guardGate( void );
 };
 
 #endif

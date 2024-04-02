@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 09:51:53 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/01 16:56:23 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 10:58:31 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ class ClapTrap
 		~ClapTrap();
 		ClapTrap(const ClapTrap& other);
 		ClapTrap& operator=(const ClapTrap& other);
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		int	CheckConditions(const std::string& target);
+		virtual int	CheckConditions(const std::string& target);
 		void PrintStatus( void );
 };
 

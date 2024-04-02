@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 09:53:20 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/01 16:57:11 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 10:57:24 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ int	ClapTrap::CheckConditions(const std::string& target)
 {
 	if (_HitPoints <= 0)
 	{
-		std::cout << RED << _name << " is dead so cannot attack " << target << "!" <<RESET << std::endl;
+		std::cout << RED << "ClapTrap " << _name << " is dead so cannot attack " << target << "!" <<RESET << std::endl;
 		return (1);
 	}
 	if (_EnergyPoints == 0)
 	{
-		std::cout << LIGHT_RED << _name << " tried to attack " << target << " but didn't have enough energy!" << RESET << std::endl;
+		std::cout << LIGHT_RED << "ClapTrap " << _name << " tried to attack " << target << " but didn't have enough energy!" << RESET << std::endl;
 		return (1);
 	}
 	if (_AttackDamage <= 0)
 	{
-		std::cout << YELLOW << _name << " tries to attack " << target << " but has no Attack Damage. "
+		std::cout << YELLOW << "ClapTrap " << _name << " tries to attack " << target << " but has no Attack Damage. "
 			<< _name << " wastes energy whilst trying!" << RESET << std::endl;
-		std::cout << LIGHT_BLUE << "No damage was inflicted." << RESET << std::endl;
+		std::cout << YELLOW << "No damage was inflicted." << RESET << std::endl;
 		_EnergyPoints--;
 		return (1);
 	}
@@ -49,7 +49,7 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (CheckConditions(target) == 1)
 		return ;
-	std::cout << YELLOW << _name << " attacks " << target << " with " << _AttackDamage << " amount of damage!" << YELLOW << std::endl;
+	std::cout << YELLOW << "ClapTrap " << _name << " attacks " << target << " with " << _AttackDamage << " amount of damage!" << YELLOW << std::endl;
 	_EnergyPoints--;
 	PrintStatus();
 }
