@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 12:36:04 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 17:47:57 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 18:05:32 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ void	SecondCase( void )
 	FirstPerson.beRepaired(10);
 	FirstPerson.takeDamage(25);
 	FirstPerson.guardGate();
+	ScavTrap SecondPerson = FirstPerson;
+	SecondPerson.PrintStatus();
 	FirstPerson.attack("Jimbo");
 	FirstPerson.beRepaired(5);
+	SecondPerson.PrintStatus();
 }
 
 void	ThirdCase( void )
@@ -173,12 +176,12 @@ void	NinthCase( void )
 int	main( void )
 {
 	// FirstCase();
-	// SecondCase();
+	SecondCase();
 	// ThirdCase();
 	//FourthCase();
 	// FifthCase();
 	//SixthCase();
 	//SeventhCase();
-	EigthCase();
+	//EigthCase();
 	//NinthCase();
 }
