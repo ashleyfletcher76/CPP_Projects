@@ -6,13 +6,14 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 12:36:04 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 11:15:34 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:02:44 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 void	FirstCase( void )
 {
@@ -142,6 +143,25 @@ void	SeventhCase( void )
 	FourthPerson.attack("Yasmin");
 }
 
+void	EigthCase( void )
+{
+	DiamondTrap FirstPerson("Dave");
+
+	FirstPerson.PrintStatusDiamond();
+	// FirstPerson.attack("Johno");
+	// FirstPerson.beRepaired(10);
+	// FirstPerson.guardGate();
+	// FirstPerson.highFivesGuys();
+	// FirstPerson.takeDamage(10);
+	FirstPerson.whoAmI();
+	DiamondTrap SecondPerson("Jimmy");
+	SecondPerson.PrintStatusDiamond();
+	SecondPerson = FirstPerson;
+	SecondPerson.PrintStatusDiamond();
+	DiamondTrap ThirdPerson = FirstPerson;
+	ThirdPerson.PrintStatusDiamond();
+}
+
 int	main( void )
 {
 	// FirstCase();
@@ -150,5 +170,6 @@ int	main( void )
 	//FourthCase();
 	// FifthCase();
 	// SixthCase();
-	SeventhCase();
+	//SeventhCase();
+	EigthCase();
 }

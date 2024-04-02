@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:41:46 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 10:58:16 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:41:10 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 20;
-	std::cout << MAGENTA << "ScavTrap" << "'s constructor intialized" << RESET << std::endl;
+	std::cout << MAGENTA << "ScavTrap constructor intialized" << RESET << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << MAGENTA << "ScavTrap" << "'s destructor called!" << RESET << std::endl;
+	std::cout << MAGENTA << "ScavTrap destructor called!" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)

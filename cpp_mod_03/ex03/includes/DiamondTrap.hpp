@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 11:18:27 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 11:21:04 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 14:39:01 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,24 @@
 
 #include <iostream>
 #include <string>
-#include "ClapTrap.hpp"
+#pragma once
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class DiamondTrap : public ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	private:
+		std::string name;
 
 	public:
 		DiamondTrap(const std::string& name);
 		~DiamondTrap();
 		DiamondTrap(const DiamondTrap& other);
 		DiamondTrap& operator=(const DiamondTrap& other);
-
-		void attack(const std::string& target);
-		int	CheckConditions(const std::string& target);
 		void whoAmI();
+		void PrintStatusDiamond( void );
+		using ScavTrap::attack;
+		using ScavTrap::CheckConditions;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 09:43:56 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 11:07:05 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:10:21 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-	std::cout << MAGENTA << other._name << " copy constructor Initialized" << RESET <<std::endl;
+	std::cout << MAGENTA << "FragTrap " << other._name << " copy constructor Initialized" << RESET <<std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap& other)
