@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:12 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/03 17:11:36 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:15:38 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int Firstcase()
 
 int	main( void )
 {
-	//Firstcase();
+	Firstcase();
 	SecondCase();
-	//ThirdCase();
+	ThirdCase();
 }
