@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/04/03 10:22:05 by asfletch         ###   ########.fr        #
+#    Updated: 2024/04/03 15:28:52 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,14 @@ COLOUR_END = \033[0m
 CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98
-SRCS = main.cpp ClapTrap.cpp ClapConstru.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp \
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp \
 
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-NAME = DiamondTrap
+NAME = ex00
 
-$(NAME) : $(OBJ_DIR) $(OBJ) ./includes/ClapTrap.hpp ./includes/ScavTrap.hpp ./includes/DiamondTrap.hpp
+$(NAME) : $(OBJ_DIR) $(OBJ) ./includes/Animal.hpp ./includes/Cat.hpp ./includes/Dog.hpp ./includes/WrongAnimal.hpp ./includes/WrongCat.hpp
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	echo "$(COLOUR_GREEN)$(NAME) compiled successfully!$(COLOUR_END)"
 

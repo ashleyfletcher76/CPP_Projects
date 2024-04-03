@@ -6,25 +6,26 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:49:53 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/03 13:58:34 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:08:41 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Animal.hpp>
+#include "Animal.hpp"
 
-Animal::Animal()
+Animal::Animal() : type("Big Giant Bear")
 {
+	std::cout << LIGHT_BLUE << "Animal's constructor has been initialized." << RESET << std::endl;
 }
 
 Animal::~Animal()
 {
+	std::cout << RED << "Animal's deconstructor has been initialized." << RESET << std::endl;
 }
 
-Animal::Animal(const Animal& other)
+Animal::Animal(const Animal& other) : type(other.type)
 {
 	std::cout << MAGENTA << "Animal's copy constructor Initialized"
 		<< RESET <<std::endl;
-	_name = other._name;
 }
 
 Animal& Animal::operator=(const Animal& other)
@@ -33,6 +34,17 @@ Animal& Animal::operator=(const Animal& other)
 	{
 		std::cout << MAGENTA << "Animal's copy assignment initialized"
 			<< RESET << std::endl;
+		type = other.type;
 	}
 	return (*this);
+}
+
+std::string Animal::getType( void ) const
+{
+	return(type);
+}
+
+void Animal::makeSound( void ) const
+{
+	std::cout << YELLOW << "The big giant bear goes mooooooooo!" << RESET << std::endl;
 }

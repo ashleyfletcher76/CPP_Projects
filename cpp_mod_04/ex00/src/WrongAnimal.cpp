@@ -6,25 +6,26 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:16 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/03 13:57:07 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:09:35 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal() : type("Wrong animal")
 {
+	std::cout << LIGHT_BLUE << "WrongCat's constructor has been initialized." << RESET << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
+	std::cout << RED << "WrongCat's deconstructor has been initialized." << RESET << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other)
 {
-	std::cout << MAGENTA << "WrongAnimal's copy constructor Initialized"
-		<< RESET <<std::endl;
-	_name = other._name;
+	std::cout << MAGENTA << "WrongAnimal's copy constructor Initialized" <<  RESET << std::endl;
+	type = other.type;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
@@ -35,4 +36,9 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 			<< RESET << std::endl;
 	}
 	return (*this);
+}
+
+void WrongAnimal::makeSound( void ) const
+{
+	std::cout << YELLOW << "Looooool its being outputted (WrongAnimal)" << RESET << std::endl;
 }

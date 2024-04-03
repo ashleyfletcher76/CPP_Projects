@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Colours.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 13:44:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/03 15:35:33 by asfletch         ###   ########.fr       */
+/*   Created: 2024/04/03 15:22:50 by asfletch          #+#    #+#             */
+/*   Updated: 2024/04/03 15:24:31 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef COLOURS_HPP
+# define COLOURS_HPP
 
-#include <iostream>
-#include <string>
 #pragma once
-#include "Animal.hpp"
-#include "Colours.hpp"
-
-class Cat : public Animal
-{
-	private:
-
-	public:
-		Cat();
-		~Cat();
-		Cat(const Cat& other);
-		Cat& operator=(const Cat& other);
-		void makeSound( void ) const;
-};
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define YELLOW  "\x1b[33m"
+#define BLUE    "\x1b[34m"
+#define MAGENTA "\x1b[35m"
+#define CYAN    "\x1b[36m"
+#define LIGHT_RED     "\x1b[91m"
+#define LIGHT_GREEN   "\x1b[92m"
+#define LIGHT_YELLOW  "\x1b[93m"
+#define LIGHT_BLUE    "\x1b[94m"
+#define LIGHT_MAGENTA "\x1b[95m"
+#define LIGHT_CYAN    "\x1b[96m"
+#define RESET   "\x1b[0m"
 
 #endif
