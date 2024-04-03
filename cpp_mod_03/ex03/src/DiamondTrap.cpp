@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 11:18:14 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/02 17:48:16 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/03 10:21:15 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"
 {
 	std::cout << MAGENTA << "DiamondTrap " << this->name << "'s constructor intialized"
 		<< RESET << std::endl;
+		_HitPoints = 100;
+		_EnergyPoints = 50;
+		_AttackDamage = 30;
 }
 
 DiamondTrap::~DiamondTrap()
