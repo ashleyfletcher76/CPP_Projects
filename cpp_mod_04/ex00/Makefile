@@ -6,53 +6,49 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/04/03 17:16:22 by asfletch         ###   ########.fr        #
+#    Updated: 2024/04/04 06:26:04 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .SILENT:
 
 COLOUR_DEFAULT = \033[0m
-COLOUR_BLACK = \033[0;30m
-COLOUR_RED = \033[0;31m
 COLOUR_GREEN = \033[0;32m
-COLOUR_YELLOW = \033[0;33m
 COLOUR_BLUE = \033[0;34m
 COLOUR_MAGENTA = \033[0;35m
-COLOUR_CYAN = \033[0;36m
-COLOUR_WHITE = \033[0;37m
-COLOUR_BOLD = \033[1m
-COLOUR_UNDERLINE = \033[4m
 COLOUR_END = \033[0m
 
 CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp \
-
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ_DIR = obj
+SRC_DIR = src/
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
+DEPS = $(addprefix $(SRC_DIR)/, $(SRCS)) ./includes/Animal.hpp ./includes/Cat.hpp \
+	./includes/Dog.hpp ./includes/WrongAnimal.hpp ./includes/WrongCat.hpp
 
 NAME = ex00
 
-$(NAME) : $(OBJ_DIR) $(OBJ) ./includes/Animal.hpp ./includes/Cat.hpp ./includes/Dog.hpp ./includes/WrongAnimal.hpp ./includes/WrongCat.hpp
+$(NAME): $(OBJ_DIR) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	echo "$(COLOUR_GREEN)$(NAME) compiled successfully!$(COLOUR_END)"
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)/%.o: src/%.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)%.cpp $(DEPS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all : $(NAME)
+all: $(NAME)
 
 clean:
 	$(RM) -rf $(OBJ_DIR)
+	@echo "$(COLOUR_BLUE)$(NAME) objects removed successfully..$(COLOUR_END)"
 
 fclean: clean
 	$(RM) $(NAME)
-	echo "$(COLOUR_MAGENTA)$(NAME) cleaned successfully!$(COLOUR_END)"
+	echo "$(COLOUR_MAGENTA)$(NAME) cleaned successfully..$(COLOUR_END)"
 
 re: fclean all
 
