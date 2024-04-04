@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:12 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 15:09:54 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:34:56 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,24 @@ void SixthCase( void )
 
 	FirstAnimal->SetIdea("I like nuggets");
 	SecondAnimal->SetIdea("I like pizza");
+	FirstAnimal->PrintIdeas(1);
+	SecondAnimal->PrintIdeas(1);
+
 	std::cout << "FirstAnimal's memory address: "
 		<< FirstAnimal->GetBrainAddress() << std::endl;
-	std::cout << "FirstAnimal's memory address: "
+	std::cout << "SecondAnimal's memory address: "
 		<< SecondAnimal->GetBrainAddress() << std::endl;
+
+	*SecondAnimal = *FirstAnimal;
+	FirstAnimal->SetIdea("I like nuggets");
+	SecondAnimal->SetIdea("I like pizza");
+
+	std::cout << "FirstAnimal's memory address: "
+		<< FirstAnimal->GetBrainAddress() << std::endl;
+	std::cout << "SecondAnimal's memory address: "
+		<< SecondAnimal->GetBrainAddress() << std::endl;
+	FirstAnimal->PrintIdeas(1);
+	SecondAnimal->PrintIdeas(1);
 
 	delete FirstAnimal;
 	delete SecondAnimal;
@@ -105,10 +119,10 @@ void Firstcase()
 
 int	main( void )
 {
-	Firstcase();
-	SecondCase();
-	ThirdCase();
-	FourthCase();
-	FifthCase();
+	// Firstcase();
+	// SecondCase();
+	// ThirdCase();
+	// FourthCase();
+	// FifthCase();
 	SixthCase();
 }
