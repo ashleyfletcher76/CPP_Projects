@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:12 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 14:47:09 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:09:54 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void SixthCase( void )
 	Animal* FirstAnimal = new Cat();
 	Animal* SecondAnimal = new Cat();
 
-	static_cast<Cat*>(FirstAnimal)->SetIdea("I like nuggets");
-	static_cast<Cat*>(SecondAnimal)->SetIdea("I like pizza");
+	FirstAnimal->SetIdea("I like nuggets");
+	SecondAnimal->SetIdea("I like pizza");
 	std::cout << "FirstAnimal's memory address: "
-		<< static_cast<Cat*>(FirstAnimal)->GetBrainAddress() << std::endl;
+		<< FirstAnimal->GetBrainAddress() << std::endl;
 	std::cout << "FirstAnimal's memory address: "
-		<< static_cast<Cat*>(SecondAnimal)->GetBrainAddress() << std::endl;
+		<< SecondAnimal->GetBrainAddress() << std::endl;
 
 	delete FirstAnimal;
 	delete SecondAnimal;
@@ -105,10 +105,10 @@ void Firstcase()
 
 int	main( void )
 {
-	//Firstcase();
-	//SecondCase();
-	//ThirdCase();
-	//FourthCase();
-	//FifthCase();
+	Firstcase();
+	SecondCase();
+	ThirdCase();
+	FourthCase();
+	FifthCase();
 	SixthCase();
 }

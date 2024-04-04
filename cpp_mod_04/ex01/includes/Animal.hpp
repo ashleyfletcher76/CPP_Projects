@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:41:22 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 14:40:34 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:07:09 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal
 {
 	protected:
 		std::string type;
-
+		Brain *brains;
 	public:
 		Animal();
 		Animal(std::string name);
@@ -32,8 +32,9 @@ class Animal
 
 		std::string getType( void ) const;
 		virtual void makeSound( void ) const;
-		// virtual void SetIdea(const std::string& idea) const;
-		// void PrintIdeas(unsigned int NumIdeas);
+		virtual void SetIdea(const std::string& idea) const;
+		void PrintIdeas(unsigned int NumIdeas);
+		Brain* GetBrainAddress( void );
 };
 
 #endif
