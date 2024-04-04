@@ -6,13 +6,18 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:49:53 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 11:40:25 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 14:38:53 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal() : type("Big Giant Bear")
+{
+	std::cout << LIGHT_BLUE << "Animal's constructor has been initialized." << RESET << std::endl;
+}
+
+Animal::Animal(std::string name) : type(name)
 {
 	std::cout << LIGHT_BLUE << "Animal's constructor has been initialized." << RESET << std::endl;
 }
@@ -49,7 +54,13 @@ void Animal::makeSound( void ) const
 	std::cout << YELLOW << "The big giant bear goes mooooooooo!" << RESET << std::endl;
 }
 
-Brain* Animal::GetBrain( void )
-{
-	return (NULL);
-}
+// void Animal::SetIdea(const std::string& idea) const
+// {
+// 	for (unsigned int i = 0; i < 100; i++)
+// 		brains->SetIdeas(idea);
+// }
+
+// void Animal::PrintIdeas(unsigned int NumIdeas)
+// {
+// 	brains->PrintIdeas(NumIdeas);
+// }

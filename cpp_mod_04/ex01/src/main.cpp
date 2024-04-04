@@ -6,15 +6,57 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:12 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 11:04:21 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 14:47:09 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "Brain.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+
+void SixthCase( void )
+{
+	Animal* FirstAnimal = new Cat();
+	Animal* SecondAnimal = new Cat();
+
+	static_cast<Cat*>(FirstAnimal)->SetIdea("I like nuggets");
+	static_cast<Cat*>(SecondAnimal)->SetIdea("I like pizza");
+	std::cout << "FirstAnimal's memory address: "
+		<< static_cast<Cat*>(FirstAnimal)->GetBrainAddress() << std::endl;
+	std::cout << "FirstAnimal's memory address: "
+		<< static_cast<Cat*>(SecondAnimal)->GetBrainAddress() << std::endl;
+
+	delete FirstAnimal;
+	delete SecondAnimal;
+}
+
+void FifthCase( void )
+{
+	Cat OriginalCat;
+	std::cout << "Original Cat's memory address: "
+		<< OriginalCat.GetBrainAddress() << std::endl;
+	Cat CopiedCat = OriginalCat;
+	std::cout << "Copied Cat's memory address: "
+		<< CopiedCat.GetBrainAddress() << std::endl;
+}
+
+void FourthCase( void )
+{
+	Cat OriginalCat;
+
+	OriginalCat.SetIdea("Original Idea");
+	std::cout << "Original begin idea: ";
+	OriginalCat.PrintIdeas(1);
+	Cat CopiedCat = OriginalCat;
+	OriginalCat.SetIdea("New Idea");
+	std::cout << "Original after change: ";
+	OriginalCat.PrintIdeas(1);
+	std::cout << "Copied with assignment: ";
+	CopiedCat.PrintIdeas(1);
+}
 
 void ThirdCase( void )
 {
@@ -46,14 +88,27 @@ void SecondCase( void )
 	delete SecondAnimal;
 }
 
-// int Firstcase()
-// {
+void Firstcase()
+{
+	Cat* FirstAnimal = new Cat();
+	Cat* SecondAnimal = new Cat();
 
-// }
+	FirstAnimal->SetIdea("Chickens nuggets");
+	SecondAnimal->SetIdea("Goats");
+	FirstAnimal->PrintIdeas(2);
+	SecondAnimal->PrintIdeas(2);
+	*SecondAnimal = *FirstAnimal;
+	SecondAnimal->PrintIdeas(2);
+	delete FirstAnimal;
+	delete SecondAnimal;
+}
 
 int	main( void )
 {
 	//Firstcase();
 	//SecondCase();
-	ThirdCase();
+	//ThirdCase();
+	//FourthCase();
+	//FifthCase();
+	SixthCase();
 }

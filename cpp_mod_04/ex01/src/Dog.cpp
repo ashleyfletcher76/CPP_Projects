@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:03 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/03 17:08:48 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 14:27:37 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,20 @@ Dog& Dog::operator=(const Dog& other)
 void Dog::makeSound( void ) const
 {
 	std::cout << YELLOW << "The dog goes woof woof!" << RESET << std::endl;
+}
+
+Brain* Dog::GetIdeas( void )
+{
+	return (brains);
+}
+
+void Dog::SetIdea(const std::string& idea) const
+{
+	for (unsigned int i = 0; i < 100; i++)
+		brains->SetIdeas(idea);
+}
+
+void Dog::PrintIdeas(unsigned int NumIdeas)
+{
+	brains->PrintIdeas(NumIdeas);
 }

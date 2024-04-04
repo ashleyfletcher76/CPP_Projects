@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 07:06:39 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 10:55:09 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 12:07:57 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,10 @@ void Brain::GetIdeas(std::string& str)
 {
 	for (int i = 0; i < 100; i++)
 		ideas[i] = str;
+}
+
+void Brain::PrintIdeas(unsigned int NumIdeas)
+{
+	for (unsigned int i = 0; i < NumIdeas; i++)
+		std::cout << ideas[i] << std::endl;
 }
