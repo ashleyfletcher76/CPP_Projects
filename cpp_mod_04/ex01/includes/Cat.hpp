@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:44:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 07:05:10 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 11:39:21 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,22 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 #include "Colours.hpp"
 
 class Cat : public Animal
 {
 	private:
-
+		Brain* brains;
 	public:
 		Cat();
-		~Cat();
+		virtual ~Cat();
 		Cat(const Cat& other);
 		Cat& operator=(const Cat& other);
+
 		void makeSound( void ) const;
+		Brain* GetIdeas( void );
+		void SetIdeas (const std::string& idea) const;
 };
 
 #endif

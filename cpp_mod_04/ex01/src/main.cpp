@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:12 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 06:36:12 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 11:04:21 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,10 @@ void SecondCase( void )
 	delete SecondAnimal;
 }
 
-int Firstcase()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << meta->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	delete j;
-	delete i;
-	delete meta;
-	return 0;
-}
+// int Firstcase()
+// {
+
+// }
 
 int	main( void )
 {

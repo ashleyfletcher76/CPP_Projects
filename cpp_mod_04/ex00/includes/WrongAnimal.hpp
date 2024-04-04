@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:47:21 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/03 17:00:46 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 06:49:31 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class WrongAnimal
 
 	public:
 		WrongAnimal();
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 		WrongAnimal(const WrongAnimal& other);
 		WrongAnimal& operator=(const WrongAnimal& other);
 		void makeSound( void ) const;

@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:46:36 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/03 15:32:39 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/04 07:05:16 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string>
-#pragma once
 #include "Animal.hpp"
 #include "Colours.hpp"
 
