@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:46:36 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 11:07:24 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:47:54 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 class Dog : public Animal
 {
 	private:
-		Brain* brains;
+		Brain* brain;
 	public:
 		Dog();
 		virtual ~Dog();
@@ -30,7 +30,7 @@ class Dog : public Animal
 
 		void makeSound( void ) const;
 		Brain* GetBrain( void );
-		void SetIdea(const std::string& idea) const;
+		void SetIdeas(const std::string& idea) const;
 		void PrintIdeas(unsigned int NumIdeas);
 };
 

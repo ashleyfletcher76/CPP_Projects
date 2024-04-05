@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:49:53 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 11:07:08 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:29:02 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,21 @@ void Animal::makeSound( void ) const
 	std::cout << YELLOW << "The big giant bear goes mooooooooo!" << RESET << std::endl;
 }
 
-void Animal::SetIdea(const std::string& idea) const
+Brain* Animal::GetBrain( void )
 {
+	std::cout << "Animal::GetBrain called" << std::endl;
+	return (NULL);
+}
+
+void Animal::SetIdeas(const std::string& idea) const
+{
+	std::cout << "Animal::SetIdeas called" << std::endl;
 	(void)idea;
+	return ;
 }
 
 void Animal::PrintIdeas(unsigned int NumIdeas)
 {
+	std::cout << "Animal::PrintIdeas called" << std::endl;
 	(void)NumIdeas;
-}
-
-Brain* Animal::GetBrain( void )
-{
-	return (NULL);
 }

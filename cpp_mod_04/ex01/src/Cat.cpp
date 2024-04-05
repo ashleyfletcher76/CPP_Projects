@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:50:31 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 11:06:24 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:52:27 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 Cat::Cat()
 {
 	type = "Cat";
-	brains = new Brain();
+	brain = new Brain();
 	std::cout << LIGHT_BLUE << "Cat's constructor has been initialized." << RESET << std::endl;
 }
 
 Cat::~Cat()
 {
 	std::cout << RED << "Cat's deconstructor has been initialized." << RESET << std::endl;
-	delete brains;
+	delete brain;
 }
 
-Cat::Cat(const Cat& other) : Animal(other), brains(new Brain(*other.brains))
+Cat::Cat(const Cat& other) : Animal(other), brain(new Brain(*other.brain))
 {
 	std::cout << MAGENTA << "Cat's copy constructor Initialized"
 		<< RESET <<std::endl;
@@ -38,9 +38,9 @@ Cat& Cat::operator=(const Cat& other)
 		std::cout << MAGENTA << "Cat's copy assignment initialized"
 			<< RESET << std::endl;
 		Animal::operator=(other);
-		Brain* NewBrain = new Brain(*other.brains);
-		delete brains;
-		brains = NewBrain;
+		Brain* NewBrain = new Brain(*other.brain);
+		delete brain;
+		brain = NewBrain;
 	}
 	return (*this);
 }
@@ -52,16 +52,16 @@ void Cat::makeSound( void ) const
 
 Brain* Cat::GetBrain( void )
 {
-	return (brains);
+	return (brain);
 }
 
-void Cat::SetIdea(const std::string& idea) const
+void Cat::SetIdeas(const std::string& idea) const
 {
 	for (unsigned int i = 0; i < 100; i++)
-		brains->SetIdeas(idea);
+		brain->SetIdeas(idea, i);
 }
 
 void Cat::PrintIdeas(unsigned int NumIdeas)
 {
-	brains->PrintIdeas(NumIdeas);
+	brain->PrintIdeas(NumIdeas);
 }

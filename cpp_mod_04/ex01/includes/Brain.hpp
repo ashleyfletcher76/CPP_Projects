@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 07:00:11 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 15:20:03 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/05 12:24:28 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Brain
 		~Brain();
 		Brain(const Brain& other);
 		Brain& operator=(const Brain& other);
-		void SetIdeas(std::string str);
+		void SetIdeas(std::string str, unsigned int i);
 		std::string GetIdeas( void );
 		void PrintIdeas(unsigned int NumIdeas);
 };
