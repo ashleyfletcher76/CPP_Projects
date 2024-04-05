@@ -6,13 +6,13 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:50:31 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 14:39:13 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:06:24 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat()
 {
 	type = "Cat";
 	brains = new Brain();
@@ -50,7 +50,7 @@ void Cat::makeSound( void ) const
 	std::cout << YELLOW << "The cat goes meeeeeeeeow!" << RESET << std::endl;
 }
 
-Brain* Cat::GetBrainAddress( void )
+Brain* Cat::GetBrain( void )
 {
 	return (brains);
 }

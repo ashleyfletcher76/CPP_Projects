@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:44:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 14:26:59 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:07:20 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Cat : public Animal
 		Cat& operator=(const Cat& other);
 
 		void makeSound( void ) const;
-		Brain* GetBrainAddress( void );
+		Brain* GetBrain( void );
 		void SetIdea(const std::string& idea) const;
 		void PrintIdeas(unsigned int NumIdeas);
 };

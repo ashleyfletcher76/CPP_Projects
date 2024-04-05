@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:49:53 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 15:32:31 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:07:08 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void Animal::PrintIdeas(unsigned int NumIdeas)
 	(void)NumIdeas;
 }
 
-Brain* Animal::GetBrainAddress( void )
+Brain* Animal::GetBrain( void )
 {
 	return (NULL);
 }
