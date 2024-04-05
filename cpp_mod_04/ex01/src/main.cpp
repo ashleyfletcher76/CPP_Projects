@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:12 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 12:34:02 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/05 13:13:50 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,42 @@
 #include "Brain.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+
+void HalfDogCatCase()
+{
+	Animal* animals[10];
+
+	for (unsigned int i = 0; i < 6; i++)
+	{
+		if (i % 2 == 0)
+			animals[i] = new Cat();
+		else
+			animals[i] = new Dog();
+	}
+	std::cout << std::endl;
+	for (unsigned int i = 0; i < 6; i++)
+		animals[i]->makeSound();
+	std::cout << std::endl;
+	for (unsigned int i = 0; i < 6; i++)
+		delete animals[i];
+}
+
+void DogBasicCase()
+{
+	Dog basic;
+
+	basic.SetIdeas("Bark loudly");
+	{
+		Dog temp = basic;
+		temp.SetIdeas("Barks like a cat");
+		std::cout << "Basic Dog's idea: ";
+		basic.PrintIdeas(1);
+		std::cout << "Temp Dog's idea: ";
+		temp.PrintIdeas(1);
+	}
+	std::cout << "Temp is out of scope: ";
+	basic.PrintIdeas(1);
+}
 
 void AnimalCaseMem()
 {
@@ -27,15 +63,11 @@ void AnimalCaseMem()
 	FirstAnimal->PrintIdeas(1);
 	SecondAnimal->PrintIdeas(1);
 
-	std::cout << "FirstAnimal's memory address: "
-		<< FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: "
-		<< SecondAnimal->GetBrain() << std::endl;
+	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
+	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
 	*SecondAnimal = *FirstAnimal;
-	std::cout << "FirstAnimal's memory address: "
-		<< FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: "
-		<< SecondAnimal->GetBrain() << std::endl;
+	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
+	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
 	FirstAnimal->PrintIdeas(1);
 	SecondAnimal->PrintIdeas(1);
 
@@ -53,15 +85,11 @@ void DogCaseMem()
 	FirstAnimal->GetBrain()->PrintIdeas(1);
 	SecondAnimal->GetBrain()->PrintIdeas(1);
 
-	std::cout << "FirstAnimal's memory address: "
-		<< FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: "
-		<< SecondAnimal->GetBrain() << std::endl;
+	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
+	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
 	*SecondAnimal = *FirstAnimal;
-	std::cout << "FirstAnimal's memory address: "
-		<< FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: "
-		<< SecondAnimal->GetBrain() << std::endl;
+	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
+	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
 	std::cout << FirstAnimal->GetBrain()->GetIdeas() << std::endl;
 	std::cout << SecondAnimal->GetBrain()->GetIdeas() << std::endl;
 	FirstAnimal->PrintIdeas(1);
@@ -80,15 +108,11 @@ void CatCaseMem()
 	SecondAnimal->SetIdeas("I like pizza");
 	FirstAnimal->GetBrain()->PrintIdeas(1);
 	SecondAnimal->GetBrain()->PrintIdeas(1);
-	std::cout << "FirstAnimal's memory address: "
-		<< FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: "
-		<< SecondAnimal->GetBrain() << std::endl;
+	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
+	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
 	*SecondAnimal = *FirstAnimal;
-	std::cout << "FirstAnimal's memory address: "
-		<< FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: "
-		<< SecondAnimal->GetBrain() << std::endl;
+	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
+	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
 	FirstAnimal->PrintIdeas(1);
 	SecondAnimal->PrintIdeas(1);
 
@@ -191,13 +215,15 @@ void Firstcase()
 
 int	main()
 {
-	Firstcase();
-	SecondCase();
-	ThirdCase();
-	CatCaseNoMem();
-	DogCaseNoMem();
-	CatDogCopyConstructor();
-	DogCaseMem();
-	CatCaseMem();
-	AnimalCaseMem();
+	// Firstcase();
+	// SecondCase();
+	// ThirdCase();
+	// CatCaseNoMem();
+	// DogCaseNoMem();
+	// CatDogCopyConstructor();
+	// DogCaseMem();
+	// CatCaseMem();
+	// AnimalCaseMem();
+	// DogBasicCase();
+	HalfDogCatCase();
 }
