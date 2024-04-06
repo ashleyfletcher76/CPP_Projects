@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Colours.hpp                                        :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:22:50 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/04 07:04:54 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:57:07 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@
 #define LIGHT_MAGENTA "\x1b[95m"
 #define LIGHT_CYAN    "\x1b[96m"
 #define RESET   "\x1b[0m"
+
+#include <string>
+#include <iostream>
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:09:50 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 15:10:10 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/06 13:13:18 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,10 @@ AMateria& AMateria::operator=(const AMateriaal& other)
 	}
 	return (*this);
 }
+
+std::string AMateria::const& getType() const
+{
+	
+}
+
+AMateria*::Amateriaclone() {}
