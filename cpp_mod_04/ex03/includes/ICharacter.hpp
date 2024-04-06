@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:12:54 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/06 12:57:24 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/06 15:02:58 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 class ICharacter
 {
+	private:
+		std::string _name;
+		
 	public:
 	virtual ICharacter() {}
 	virtual ~ICharacter() {}

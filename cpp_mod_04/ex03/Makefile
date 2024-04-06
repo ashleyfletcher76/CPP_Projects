@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/04/06 13:02:00 by asfletch         ###   ########.fr        #
+#    Updated: 2024/04/06 15:06:53 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,13 @@ COLOUR_END = \033[0m
 CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98 -fsanitize=address -fsanitize=undefined
-SRCS = main.cpp AMateria.cpp Cure.cpp Ice.cpp
+SRCS = main.cpp AMateria.cpp Cure.cpp Ice.cpp MateriaSource.cpp Character.cpp ICharacter.cpp
 OBJ_DIR = obj
 SRC_DIR = src/
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS = $(addprefix $(SRC_DIR)/, $(SRCS)) ./includes/ICharacter.hpp ./includes/AMateria.hpp \
-	./includes/Utils.hpp
+	./includes/Utils.hpp ./includes/MateriaSource.hpp ./includes/Character.hpp \
+	./includes/ICharacter.hpp ./includes/IMateriaSource.hpp
 
 NAME = ex03
 

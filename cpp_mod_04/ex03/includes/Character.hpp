@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 15:05:07 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/06 13:20:04 by asfletch         ###   ########.fr       */
+/*   Created: 2024/04/06 14:57:07 by asfletch          #+#    #+#             */
+/*   Updated: 2024/04/06 15:01:36 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 #include "Utils.hpp"
 #include "ICharacter.hpp"
 
-class AMateria
+class Character : ICharacter
 {
-	protected:
-	std::String _type;
+	private:
 
 	public:
-		AMateria();
-		virtual ~Amateria();
-		AMateria(std::string const& type);
-		std::string const & getType() const;
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		Character();
+		~Character();
+		Character(const Character& other);
+		Character& operator=(const Character& other);
+
+		std::string const& getName() const;
 };
 
 #endif

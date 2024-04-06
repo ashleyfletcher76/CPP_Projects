@@ -6,7 +6,10 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:02:58 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/06 13:02:59 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:39:59 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ICharacter.hpp"
+
 

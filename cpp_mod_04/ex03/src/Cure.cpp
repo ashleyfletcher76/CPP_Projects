@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:03:05 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/06 13:13:50 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/06 15:12:38 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ Cure& Cure::operator=(const Cure& other)
 Cure::Cure clone()
 {
 	return (new Cure(*this));
+}
+
+void Cure::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std:endl;
 }

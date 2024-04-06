@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 12:55:54 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/06 13:12:57 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/06 15:09:26 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Ice : public AMateria
 		Ice& operator=(const Ice& other);
 
 		Ice* clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

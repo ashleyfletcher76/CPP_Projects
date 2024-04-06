@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 15:05:07 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/06 13:20:04 by asfletch         ###   ########.fr       */
+/*   Created: 2024/04/06 14:35:22 by asfletch          #+#    #+#             */
+/*   Updated: 2024/04/06 14:39:47 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#include "MateriaSource.hpp"
 
-#include "Utils.hpp"
-#include "ICharacter.hpp"
-
-class AMateria
+MateriaSource::MateriaSource()
 {
-	protected:
-	std::String _type;
+}
 
-	public:
-		AMateria();
-		virtual ~Amateria();
-		AMateria(std::string const& type);
-		std::string const & getType() const;
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
-};
+MateriaSource::~MateriaSource()
+{
+}
 
-#endif
+MateriaSource::MateriaSource(const MateriaSource& other)
+{
+
+}
+
+MateriaSource& MateriaSource::operator=(const MateriaSource& other)
+{
+
+}
