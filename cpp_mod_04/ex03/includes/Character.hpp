@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 14:57:07 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/06 15:01:36 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/07 16:04:59 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,16 @@
 #include "Utils.hpp"
 #include "ICharacter.hpp"
 
-class Character : ICharacter
+#define InventorySize 4
+
+class Character : public ICharacter
 {
 	private:
+		std::string _name;
+		AMateria* _Inventory[InventorySize];
+		AMateria** _Unequipped;
+		unsigned int	_UnequippedCount;
+		void Trash(AMateria** temp, int idx);
 
 	public:
 		Character();
@@ -27,6 +34,10 @@ class Character : ICharacter
 		Character& operator=(const Character& other);
 
 		std::string const& getName() const;
+		Character(const std::string& name);
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 };
 
 #endif

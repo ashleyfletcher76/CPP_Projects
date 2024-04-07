@@ -6,33 +6,33 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:03:08 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/06 15:13:57 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/07 13:03:22 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice() {}
+Ice::Ice() : AMateria("ice") {}
 
 Ice::~Ice() {}
 
-Ice::Ice(const Ice& other) {}
+Ice::Ice(const Ice& other) : AMateria(other) {}
 
 Ice& Ice::operator=(const Ice& other)
 {
 	if (this != &other)
 	{
-		(void)other;
+		_type = other._type;
 	}
 	return (*this);
 }
 
-Ice::Ice clone()
+Ice* Ice::clone() const
 {
 	return (new Ice(*this));
 }
 
 void Ice::use(ICharacter& target)
 {
-	std::cout << "* heals " << target.getName() << " wounds *"  << std:endl;
+	std::cout << "* heals " << target.getName() << " wounds *"  << std::endl;
 }
