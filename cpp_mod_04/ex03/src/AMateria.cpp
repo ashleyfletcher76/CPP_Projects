@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:09:50 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/08 10:56:50 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:41:37 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ AMateria::AMateria(std::string const& type) : _type(type) {}
 std::string const& AMateria::getType() const
 {
 	return (_type);
-}
-
-AMateria* AMateria::clone() const
-{
-	return (AMateria*)this;
 }
 
 void AMateria::use(ICharacter& target)

@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 14:35:22 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/08 13:05:12 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:48:46 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,25 @@ MateriaSource::~MateriaSource()
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
 	for (int i = 0; i < MaxTemplates; i++)
-		_Templates[i] = other._Templates[i] ? other._Templates[i]->clone() : NULL; //deep copy
+	{
+		if (other._Templates[i])
+			_Templates[i] = other._Templates[i]->clone();
+		else
+			_Templates[i] = NULL;
+	}
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
-	if (this != &other) //compares addresses
+	if (this != &other) //compares addresses...not a member of the class
 	{
 		for (int i = 0; i < MaxTemplates; i++)
 		{
 			delete _Templates[i];
-			_Templates[i] = other._Templates[i] ? other._Templates[i]->clone() : NULL; // ensures deep copy
+			if (other._Templates)
+				_Templates[i] = other._Templates[i]->clone();
+			else
+				_Templates[i] = NULL; // ensures deep copy
 		}
 	}
 	return (*this);

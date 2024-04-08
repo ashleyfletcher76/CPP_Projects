@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:03:05 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/07 13:03:29 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:37:24 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ Cure::Cure(const Cure& other) : AMateria(other) {}
 Cure& Cure::operator=(const Cure& other)
 {
 	if (this != &other)
-	{
-		_type = other._type;
-	}
+		AMateria::operator=(other);
 	return (*this);
 }
 
