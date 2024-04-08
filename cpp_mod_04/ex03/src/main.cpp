@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:02:07 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/07 16:16:29 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 11:48:49 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,42 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
-int main()
+void	leaks(void)
+{
+	system("leaks ex03");
+}
+
+void SecondTest()
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* alice = new Character("Alice");
+	ICharacter* bob = new Character("Bob");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	tmp = src->createMateria("ice");
+	alice->equip(tmp);
+	tmp = src->createMateria("cure");
+	tmp = src->createMateria("cure");
+	alice->equip(tmp);
+	alice->use(0, *alice);
+	alice->use(1, *alice);
+	alice->use(0, *alice);
+	alice->use(1, *alice);
+	alice->use(0, *bob);
+	alice->use(1, *bob);
+	alice->use(2, *bob);
+	alice->unequip(0);
+	alice->use(0, *bob);
+	alice->equip(src->createMateria("ice"));
+	alice->use(0, *bob);
+	delete bob;
+	delete alice;
+	delete src;
+}
+
+void MainTest()
 {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
@@ -26,39 +61,20 @@ int main()
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	if (tmp)
-		me->equip(tmp);
-	else
-		std::cerr << "Failed to create ice materia." << std::endl;
+	me->equip(tmp);
 	tmp = src->createMateria("cure");
-	if (tmp)
-		me->equip(tmp);
-	else
-		std::cerr << "Failed to create cure materia." << std::endl;
+	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
-	me->unequip(1);
 	delete bob;
 	delete me;
 	delete src;
-	return 0;
 }
 
-// int main()
-// {
-// 	 MateriaSource source;
-
-// 	AMateria* ice = new Ice();
-// 	source.learnMateria(ice);
-// 	AMateria* clonedIce = source.createMateria("ice");
-
-// 	if (clonedIce)
-// 		std::cout << "Cloned Ice Materia created." << std::endl;
-// 	else
-// 		std::cout << "No such Materia found." << std::endl;
-// 	delete clonedIce;
-// 	delete ice;
-
-// 	return 0;
-// }
+int main()
+{
+	//MainTest();
+	SecondTest();
+	atexit(leaks);
+}

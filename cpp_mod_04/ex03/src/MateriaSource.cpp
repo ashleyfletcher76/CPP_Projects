@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 14:35:22 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/07 13:48:52 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 11:50:19 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,13 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
+	if (_Templates)
 	for (int i = 0; i < MaxTemplates; i++)
 	{
 		if (_Templates[i] != NULL)
 		{
 			if (_Templates[i]->getType() == type)
-			{
 				return (_Templates[i]->clone());
-			}
 		}
 	}
 	return (NULL);

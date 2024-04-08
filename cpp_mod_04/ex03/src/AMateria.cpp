@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:09:50 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/07 13:49:28 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 10:56:50 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ AMateria::AMateria(const AMateria& other) : _type(other._type) {}
 AMateria& AMateria::operator=(const AMateria& other)
 {
 	if (this != &other)
-	{
 		_type = other._type;
-	}
 	return (*this);
 }
 

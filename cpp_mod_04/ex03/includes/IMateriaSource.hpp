@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 15:04:47 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/07 09:41:23 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 11:15:24 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "Utils.hpp"
 #include "AMateria.hpp"
+
+//-------Interface-------//
 
 class AMateria;
 

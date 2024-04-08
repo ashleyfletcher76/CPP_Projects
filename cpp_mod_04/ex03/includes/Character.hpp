@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 14:57:07 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/07 16:04:59 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 10:45:29 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Character : public ICharacter
 		std::string _name;
 		AMateria* _Inventory[InventorySize];
 		AMateria** _Unequipped;
-		unsigned int	_UnequippedCount;
-		void Trash(AMateria** temp, int idx);
+		unsigned int _UnequippedCount;
+		void Trash(AMateria* materia, unsigned int &count);
 
 	public:
 		Character();
