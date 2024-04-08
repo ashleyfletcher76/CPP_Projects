@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:05:07 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/08 11:15:33 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:53:43 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Utils.hpp"
 #include "ICharacter.hpp"
 
-//-------Interface-------//
+//-------Abstract class-------//
 
 class ICharacter;
 
