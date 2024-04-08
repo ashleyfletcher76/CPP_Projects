@@ -6,15 +6,14 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:03 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 11:56:31 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:20:44 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal("Dog")
 {
-	type = "Dog";
 	brain = new Brain();
 	std::cout << LIGHT_BLUE << "Dog's constructor has been initialized." << RESET << std::endl;
 }

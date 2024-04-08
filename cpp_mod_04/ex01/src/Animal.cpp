@@ -6,18 +6,18 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:49:53 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 12:29:02 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:29:38 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : type("Big Giant Bear")
+Animal::Animal() : _type("Big Giant Bear")
 {
 	std::cout << LIGHT_BLUE << "Animal's constructor has been initialized." << RESET << std::endl;
 }
 
-Animal::Animal(std::string name) : type(name)
+Animal::Animal(std::string _type) : _type(_type)
 {
 	std::cout << LIGHT_BLUE << "Animal's constructor has been initialized." << RESET << std::endl;
 }
@@ -27,7 +27,7 @@ Animal::~Animal()
 	std::cout << RED << "Animal's deconstructor has been initialized." << RESET << std::endl;
 }
 
-Animal::Animal(const Animal& other) : type(other.type)
+Animal::Animal(const Animal& other) : _type(other._type)
 {
 	std::cout << MAGENTA << "Animal's copy constructor Initialized"
 		<< RESET <<std::endl;
@@ -39,14 +39,14 @@ Animal& Animal::operator=(const Animal& other)
 	{
 		std::cout << MAGENTA << "Animal's copy assignment initialized"
 			<< RESET << std::endl;
-		type = other.type;
+		_type = other._type;
 	}
 	return (*this);
 }
 
 std::string Animal::getType( void ) const
 {
-	return(type);
+	return(_type);
 }
 
 void Animal::makeSound( void ) const

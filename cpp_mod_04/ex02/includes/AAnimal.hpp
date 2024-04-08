@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:41:22 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 13:32:50 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:42:56 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <string>
 #include "Brain.hpp"
 #include "Colours.hpp"
+
+//----interface-----//
 
 class AAnimal
 {

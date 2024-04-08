@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:12 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 13:40:22 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:07:32 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void DogBasicCase()
 	basic.PrintIdeas(1);
 }
 
-// void AnimalCaseMem()
+// void PureVirtualCase()
 // {
 // 	AAnimal* FirstAnimal = new AAnimal();
 // 	AAnimal* SecondAnimal = new AAnimal();
@@ -99,27 +99,6 @@ void DogCaseMem()
 	delete SecondAnimal;
 }
 
-void CatCaseMem()
-{
-	AAnimal* FirstAnimal = new Cat();
-	AAnimal* SecondAnimal = new Cat();
-
-	FirstAnimal->SetIdeas("I like nuggets");
-	SecondAnimal->SetIdeas("I like pizza");
-	FirstAnimal->GetBrain()->PrintIdeas(1);
-	SecondAnimal->GetBrain()->PrintIdeas(1);
-	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
-	*SecondAnimal = *FirstAnimal;
-	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
-	FirstAnimal->PrintIdeas(1);
-	SecondAnimal->PrintIdeas(1);
-
-	delete FirstAnimal;
-	delete SecondAnimal;
-}
-
 void CatDogCopyConstructor()
 {
 	Cat OriginalCat;
@@ -134,22 +113,6 @@ void CatDogCopyConstructor()
 	Dog CopiedDog = OriginalDog;
 	std::cout << "Copied Cat's memory address: "
 		<< CopiedDog.GetBrain() << std::endl;
-}
-
-void DogCaseNoMem()
-{
-	Dog OriginalDog;
-
-	OriginalDog.SetIdeas("Original Idea");
-	std::cout << "Original begin idea: ";
-	OriginalDog.PrintIdeas(1);
-	Dog CopiedDog;
-	CopiedDog = OriginalDog;
-	OriginalDog.SetIdeas("New Idea");
-	std::cout << "Original after change: ";
-	OriginalDog.PrintIdeas(1);
-	std::cout << "Copied with assignment: ";
-	CopiedDog.PrintIdeas(1);
 }
 
 void CatCaseNoMem()
@@ -168,42 +131,12 @@ void CatCaseNoMem()
 	CopiedCat.PrintIdeas(1);
 }
 
-void ThirdCase()
-{
-	WrongAnimal* FirstAnimal = new WrongCat();
-	WrongCat* SecondAnimal = new WrongCat();
-
-	FirstAnimal->makeSound();
-	SecondAnimal->makeSound();
-	delete FirstAnimal;
-	delete SecondAnimal;
-}
-
-void Firstcase()
-{
-	Cat* FirstAnimal = new Cat();
-	Cat* SecondAnimal = new Cat();
-
-	FirstAnimal->SetIdeas("Chickens nuggets");
-	SecondAnimal->SetIdeas("Goats");
-	FirstAnimal->PrintIdeas(2);
-	SecondAnimal->PrintIdeas(2);
-	*SecondAnimal = *FirstAnimal;
-	SecondAnimal->PrintIdeas(2);
-	delete FirstAnimal;
-	delete SecondAnimal;
-}
-
 int	main()
 {
-	Firstcase();
-	ThirdCase();
 	CatCaseNoMem();
-	DogCaseNoMem();
 	CatDogCopyConstructor();
 	DogCaseMem();
-	CatCaseMem();
-	// AnimalCaseMem();
+	//PureVirtualCase();
 	DogBasicCase();
 	HalfDogCatCase();
 }

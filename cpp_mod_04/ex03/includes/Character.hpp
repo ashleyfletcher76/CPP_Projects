@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 14:57:07 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/08 10:45:29 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:32:43 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Character : public ICharacter
 		AMateria* _Inventory[InventorySize];
 		AMateria** _Unequipped;
 		unsigned int _UnequippedCount;
+		unsigned int _CheckifFull;
 		void Trash(AMateria* materia, unsigned int &count);
 
 	public:

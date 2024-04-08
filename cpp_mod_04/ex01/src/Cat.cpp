@@ -6,15 +6,14 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:50:31 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 11:52:27 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:20:50 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal("Cat")
 {
-	type = "Cat";
 	brain = new Brain();
 	std::cout << LIGHT_BLUE << "Cat's constructor has been initialized." << RESET << std::endl;
 }

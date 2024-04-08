@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:41:22 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 12:22:04 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:42:13 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 class Animal
 {
 	protected:
-		std::string type;
+		std::string _type;
 	public:
 		Animal();
-		Animal(std::string name);
+		Animal(std::string _type); // derived classes calls this function when constructing
 		virtual ~Animal();
 		Animal(const Animal& other);
 		Animal& operator=(const Animal& other);

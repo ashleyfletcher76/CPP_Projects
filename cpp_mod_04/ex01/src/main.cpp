@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:51:12 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 13:13:50 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:17:21 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,52 +51,6 @@ void DogBasicCase()
 	}
 	std::cout << "Temp is out of scope: ";
 	basic.PrintIdeas(1);
-}
-
-void AnimalCaseMem()
-{
-	Animal* FirstAnimal = new Animal();
-	Animal* SecondAnimal = new Animal();
-
-	FirstAnimal->SetIdeas("I like nuggets");
-	SecondAnimal->SetIdeas("I like pizza");
-	FirstAnimal->PrintIdeas(1);
-	SecondAnimal->PrintIdeas(1);
-
-	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
-	*SecondAnimal = *FirstAnimal;
-	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
-	FirstAnimal->PrintIdeas(1);
-	SecondAnimal->PrintIdeas(1);
-
-	delete FirstAnimal;
-	delete SecondAnimal;
-}
-
-void DogCaseMem()
-{
-	Dog* FirstAnimal = new Dog();
-	Dog* SecondAnimal = new Dog();
-
-	FirstAnimal->SetIdeas("I like nuggets");
-	SecondAnimal->SetIdeas("I like pizza");
-	FirstAnimal->GetBrain()->PrintIdeas(1);
-	SecondAnimal->GetBrain()->PrintIdeas(1);
-
-	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
-	*SecondAnimal = *FirstAnimal;
-	std::cout << "FirstAnimal's memory address: " << FirstAnimal->GetBrain() << std::endl;
-	std::cout << "SecondAnimal's memory address: " << SecondAnimal->GetBrain() << std::endl;
-	std::cout << FirstAnimal->GetBrain()->GetIdeas() << std::endl;
-	std::cout << SecondAnimal->GetBrain()->GetIdeas() << std::endl;
-	FirstAnimal->PrintIdeas(1);
-	SecondAnimal->PrintIdeas(1);
-
-	delete FirstAnimal;
-	delete SecondAnimal;
 }
 
 void CatCaseMem()
@@ -152,78 +106,11 @@ void DogCaseNoMem()
 	CopiedDog.PrintIdeas(1);
 }
 
-void CatCaseNoMem()
-{
-	Cat OriginalCat;
-
-	OriginalCat.SetIdeas("Original Idea");
-	std::cout << "Original begin idea: ";
-	OriginalCat.PrintIdeas(1);
-	Cat CopiedCat;
-	CopiedCat = OriginalCat;
-	OriginalCat.SetIdeas("New Idea");
-	std::cout << "Original after change: ";
-	OriginalCat.PrintIdeas(1);
-	std::cout << "Copied with assignment: ";
-	CopiedCat.PrintIdeas(1);
-}
-
-void ThirdCase()
-{
-	WrongAnimal* FirstAnimal = new WrongCat();
-	WrongCat* SecondAnimal = new WrongCat();
-
-	FirstAnimal->makeSound();
-	SecondAnimal->makeSound();
-	delete FirstAnimal;
-	delete SecondAnimal;
-}
-
-void SecondCase()
-{
-	Animal* FirstAnimal = new Animal();
-	Animal* SecondAnimal = new Cat();
-	Animal* ThirdAnimal = FirstAnimal;
-
-	std::cout << "First animal = " << FirstAnimal->getType() << " " << std::endl;
-	std::cout << "Second animal = " << SecondAnimal->getType() << " " << std::endl;
-	std::cout << "Third animal = " << ThirdAnimal->getType() << " " << std::endl;
-
-	*FirstAnimal = *SecondAnimal;
-
-	std::cout << "First animal = " << FirstAnimal->getType() << " " << std::endl;
-	std::cout << "Second animal = " << SecondAnimal->getType() << " " << std::endl;
-
-	delete FirstAnimal;
-	delete SecondAnimal;
-}
-
-void Firstcase()
-{
-	Cat* FirstAnimal = new Cat();
-	Cat* SecondAnimal = new Cat();
-
-	FirstAnimal->SetIdeas("Chickens nuggets");
-	SecondAnimal->SetIdeas("Goats");
-	FirstAnimal->PrintIdeas(2);
-	SecondAnimal->PrintIdeas(2);
-	*SecondAnimal = *FirstAnimal;
-	SecondAnimal->PrintIdeas(2);
-	delete FirstAnimal;
-	delete SecondAnimal;
-}
-
 int	main()
 {
-	// Firstcase();
-	// SecondCase();
-	// ThirdCase();
-	// CatCaseNoMem();
 	// DogCaseNoMem();
 	// CatDogCopyConstructor();
-	// DogCaseMem();
-	// CatCaseMem();
-	// AnimalCaseMem();
+	CatCaseMem();
 	// DogBasicCase();
-	HalfDogCatCase();
+	// HalfDogCatCase();
 }

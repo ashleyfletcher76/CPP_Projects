@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 14:59:54 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/08 11:45:41 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:58:36 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Character::~Character()
 {
 	for (int i = 0; i < InventorySize; i++)
 	{
-		if (_Inventory[i] != NULL)
+		if (_Inventory[i])
 		{
 			delete _Inventory[i];
 			_Inventory[i] = NULL;
@@ -34,14 +34,21 @@ Character::~Character()
 	}
 	for (unsigned int i = 0; i < _UnequippedCount; i++)
 	{
-		delete _Unequipped[i];
-		_Unequipped[i] = NULL;
+		if (_Unequipped[i])
+		{
+			delete _Unequipped[i];
+			_Unequipped[i] = NULL;
+		}
 	}
-	delete[] _Unequipped;
-	_Unequipped = NULL;
+	if (_Unequipped)
+	{
+		delete[] _Unequipped;
+		_Unequipped = NULL;
+	}
 }
 
-Character::Character(const std::string& name) : _name(name), _Unequipped(NULL), _UnequippedCount(0)
+Character::Character(const std::string& name) : _name(name), _Unequipped(NULL),
+	_UnequippedCount(0)
 {
 	for (int i = 0; i < InventorySize; i++)
 		_Inventory[i] = NULL;
@@ -86,7 +93,7 @@ void Character::equip(AMateria* m)
 {
 	if (!m)
 	{
-		std::cout << "Equipment full." << std::endl;
+		std::cout << "Cannot equip null." << std::endl;
 		return ;
 	}
 	for(int i = 0; i < InventorySize; i++)
@@ -97,11 +104,13 @@ void Character::equip(AMateria* m)
 			return ;
 		}
 	}
+	delete m;
+	std::cout << "Equipment is full." << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-	if (idx < 0 || idx > 4 || !this->_Inventory[idx])
+	if (idx < 0 || idx >= InventorySize || !_Inventory[idx])
 	{
 		std::cout << "Nothing to unequip." << std::endl;
 		return ;
