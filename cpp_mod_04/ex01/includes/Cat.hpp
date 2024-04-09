@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:44:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/04/05 11:47:52 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/04/09 07:36:15 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Cat : public Animal
 {
 	private:
 		Brain* brain;
+		
 	public:
 		Cat();
 		virtual ~Cat();
