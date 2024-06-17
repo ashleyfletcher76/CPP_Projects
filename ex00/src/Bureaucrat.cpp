@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/17 16:32:05 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/17 17:18:43 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return (*this);
 }
 
-Bureaucrat::Bureaucrat(std::string &name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
 	if (grade < 1)
 		throw GradeTooLowException();
@@ -68,6 +68,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 void	Bureaucrat::incrementGrade()
 {
+	//std::cout << "Increment grade has been called." << std::endl;
 	if (_grade >= 150)
 		throw GradeTooHighException();
 	++_grade;
@@ -75,6 +76,7 @@ void	Bureaucrat::incrementGrade()
 
 void	Bureaucrat::decrementGrade()
 {
+	//std::cout << "Decrement grade has been called." << std::endl;
 	if (_grade <= 1)
 		throw GradeTooLowException();
 	--_grade;
