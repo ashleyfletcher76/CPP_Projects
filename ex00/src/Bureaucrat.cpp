@@ -6,15 +6,15 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/17 15:27:23 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/17 16:32:05 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat() : _name("Default Mr Man"), _grade(150)
 {
-	std::cout << "Bureaucrat's constructor has been initialized." << std::endl;
+	std::cout << "Bureaucrat's default constructor has been initialized." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -37,12 +37,51 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return (*this);
 }
 
-const std::string Bureaucrat::getName( void ) const
+Bureaucrat::Bureaucrat(std::string &name, int grade) : _name(name), _grade(grade)
 {
-	return(this->_name);
+	if (grade < 1)
+		throw GradeTooLowException();
+	if (grade > 150)
+		throw GradeTooHighException();
+	std::cout << "Bureaucrat's constructor has been initialized." << std::endl;
 }
 
-const int Bureaucrat::getGrade( void ) const
+std::string Bureaucrat::getName() const
 {
-	return(this->_grade);
+	return(_name);
+}
+
+int Bureaucrat::getGrade() const
+{
+	return(_grade);
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade is too high!");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too low!");
+}
+
+void	Bureaucrat::incrementGrade()
+{
+	if (_grade >= 150)
+		throw GradeTooHighException();
+	++_grade;
+}
+
+void	Bureaucrat::decrementGrade()
+{
+	if (_grade <= 1)
+		throw GradeTooLowException();
+	--_grade;
+}
+
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
+{
+	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
+	return (out);
 }
