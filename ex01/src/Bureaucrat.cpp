@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/18 14:01:00 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:29:42 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	Bureaucrat::decrementGrade()
 	--_grade;
 }
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
+std::ostream &operator<<(std::ostream& out, Bureaucrat const &bureaucrat)
 {
 	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
 	return (out);

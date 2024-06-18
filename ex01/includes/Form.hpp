@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:25 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/18 14:33:17 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:28:06 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class Form
 	private:
 		const std::string	_name;
 		bool				_sign;
-		const int			_grade;
-		const int			_requiredGrade;
+		const int			_requiredGradeMin;
+		const int			_executeGrade;
 
 
 	public:
@@ -32,7 +32,7 @@ class Form
 		Form(const Form& other);
 		Form& operator=(const Form& other);
 
-		Form::Form(const std::string &name, bool sign, int grade, int requiredGrade);
+		Form(const std::string &name, int requiredGradeMin, int executeGrade);
 		std::string	getName() const;
 		int			getGrade() const;
 		int			getExecute() const;
