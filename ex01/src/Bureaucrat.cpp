@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/18 16:29:42 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:55:18 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ void	Bureaucrat::decrementGrade()
 	if (_grade <= 1)
 		throw GradeTooHighException();
 	--_grade;
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+
 }
 
 std::ostream &operator<<(std::ostream& out, Bureaucrat const &bureaucrat)

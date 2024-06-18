@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:46 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/18 16:33:30 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:55:25 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Bureaucrat
 
 		void		incrementGrade();
 		void		decrementGrade();
+		void		signForm(Form &form);
 
 		class GradeTooHighException : public std::exception
 		{

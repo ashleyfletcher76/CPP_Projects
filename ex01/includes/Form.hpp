@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:25 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/18 16:28:06 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:41:15 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Form
 {
 	private:
 		const std::string	_name;
-		bool				_sign;
+		bool				_signature;
 		const int			_requiredGradeMin;
 		const int			_executeGrade;
 
@@ -34,11 +34,12 @@ class Form
 
 		Form(const std::string &name, int requiredGradeMin, int executeGrade);
 		std::string	getName() const;
-		int			getGrade() const;
-		int			getExecute() const;
+		int			getRequiredGradeToSign() const;
+		int			getRequiredGradeToExecute() const;
 
 		void		beSigned(Bureaucrat& bureaucrat);
-		void		signForm();
+		void		setSignature();
+		void		checkSigned();
 
 		class GradeTooHighException : public std::exception
 		{
