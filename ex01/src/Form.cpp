@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:21 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/18 17:41:04 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:17:52 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,26 @@ Form::Form(const Form& other) : _name(other._name), _signature(other._signature)
 Form::Form(const std::string &name, int requiredGradeMin, int executeGrade) : _name(name),
 	_signature(false), _requiredGradeMin(requiredGradeMin), _executeGrade(executeGrade)
 {
-	if (_requiredGradeMin < 1 || _executeGrade < 1)
+	if (_requiredGradeMin < 1)
+	{
+		std::cout << "Required ";
 		throw GradeTooHighException();
-	if (_requiredGradeMin > 150 || _executeGrade > 150)
+	}
+	if (_executeGrade < 1)
+	{
+		std::cout << "Execute  ";
+		throw GradeTooHighException();
+	}
+	if (_requiredGradeMin > 150)
+	{
+		std::cout << "Required ";
 		throw GradeTooLowException();
+	}
+	if (_executeGrade > 150)
+	{
+		std::cout << "Execute ";
+		throw GradeTooLowException();
+	}
 	std::cout << "Form's constructor has been initialized." << std::endl;
 }
 
@@ -53,7 +69,7 @@ void	Form::beSigned(Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _requiredGradeMin)
 	{
-		std::cout << bureaucrat.getName() << std::endl;
+		std::cout << bureaucrat.getName();
 		throw GradeTooLowException();
 	}
 	if (_signature)
@@ -61,7 +77,7 @@ void	Form::beSigned(Bureaucrat& bureaucrat)
 	else
 	{
 		std::cout << bureaucrat.getName() << " signed the " << _name << std::endl;
-		signForm();
+		setSignature();
 	}
 }
 
@@ -75,7 +91,7 @@ void	Form::checkSigned()
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high!");
+	return ("'s grade is too high!");
 }
 
 const char* Form::GradeTooLowException::what() const throw()

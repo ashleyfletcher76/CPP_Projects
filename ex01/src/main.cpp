@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/18 17:21:14 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:15:57 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	testOne()
 
 	std::cout << bureaucrat.getName() << std::endl;
 	std::cout << bureaucrat.getGrade() << std::endl;
-	std::cout << formOne.getGrade() << std::endl;
-	std::cout << formOne.getExecute() << std::endl;
+	std::cout << formOne.getRequiredGradeToSign() << std::endl;
+	std::cout << formOne.getRequiredGradeToExecute() << std::endl;
 	try
 	{
 		formOne.beSigned(bureaucrat);
