@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/17 17:29:36 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/19 13:33:55 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	main()
 	// testOne();
 	// testTwo();
 	// testThree();
-	// testFour();
-	testFive();
+	testFour();
+	//testFive();
 	return (0);
 }
