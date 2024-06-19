@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:21 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/19 14:38:21 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:47:49 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ AForm::~AForm()
 AForm::FAFormrm(const AForm& other) : _name(other._name), _signature(other._signature),
 	_requiredGradeMin(other._requiredGradeMin), _executeGrade(other._executeGrade)
 {
-	//std::cout << "Form's copy constructor Initialized" <<std::endl;
+	//std::cout << "Form's copy constructor initialized" <<std::endl;
 }
 
 AForm::AForm(const std::string &name, int requiredGradeMin, int executeGrade) : _name(name),

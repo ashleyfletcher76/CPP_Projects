@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/19 14:12:32 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:47:42 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade)
 {
-	//std::cout << "Bureaucrat's copy constructor Initialized" <<std::endl;
+	//std::cout << "Bureaucrat's copy constructor initialized" <<std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
