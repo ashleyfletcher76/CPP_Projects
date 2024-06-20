@@ -6,11 +6,13 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:08 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/19 14:52:37 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 10:24:57 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
+//------------Orthodox/constructors-----------//
 
 PresidentialPardonForm::PresidentialPardonForm()
 {
@@ -37,3 +39,5 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 	}
 	return (*this);
 }
+
+//------------Main Functions-------------//

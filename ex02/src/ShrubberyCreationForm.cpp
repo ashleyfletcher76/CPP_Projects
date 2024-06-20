@@ -6,11 +6,13 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:45:06 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/19 14:52:18 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 10:25:07 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+
+//------------Orthodox/constructors-----------//
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 {
@@ -37,3 +39,5 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	}
 	return (*this);
 }
+
+//------------Main Functions-------------//

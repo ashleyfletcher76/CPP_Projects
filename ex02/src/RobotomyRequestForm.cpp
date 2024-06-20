@@ -6,11 +6,13 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/19 14:52:29 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 10:25:04 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+
+//------------Orthodox/constructors-----------//
 
 RobotomyRequestForm::RobotomyRequestForm()
 {
@@ -37,3 +39,5 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	}
 	return (*this);
 }
+
+//------------Main Functions-------------//
