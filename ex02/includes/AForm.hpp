@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:25 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 11:56:41 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:33:10 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class AForm
 
 		void		beSigned(Bureaucrat& bureaucrat);
 		void		setSignature();
-		void		checkSigned();
+		bool		checkSigned() const;
 
 		virtual void execute(Bureaucrat const & executor) const = 0;
 

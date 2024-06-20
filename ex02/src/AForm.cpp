@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:21 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 11:28:15 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:33:01 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	AForm::beSigned(Bureaucrat& bureaucrat)
 	}
 }
 
-void	AForm::checkSigned()
+bool	AForm::checkSigned() const
 {
 	return (_signature);
 }
