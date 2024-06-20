@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:45 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 11:56:13 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:13:46 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 
 		RobotomyRequestForm(const std::string &target);
+		void	execute(Bureaucrat const & executor) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/06/20 10:27:07 by asfletch         ###   ########.fr        #
+#    Updated: 2024/06/20 14:56:51 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC_DIR = src/
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS = $(addprefix $(SRC_DIR)/, $(SRCS)) ./includes/Bureaucrat.hpp ./includes/AForm.hpp \
 	./includes/PresidentialPardonForm.hpp ./includes/RobotomyRequestForm.hpp \
-	./includes/ShrubberyCreationForm.hpp
+	./includes/ShrubberyCreationForm.hpp ./includes/umbrella.hpp
 
 NAME = ex02
 

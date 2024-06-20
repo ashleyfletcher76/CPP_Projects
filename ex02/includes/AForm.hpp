@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:25 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 12:33:10 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:18:30 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define AFORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -24,7 +25,6 @@ class AForm
 		bool				_signature;
 		const int			_requiredGradeMin;
 		const int			_executeGrade;
-
 
 	public:
 		AForm();

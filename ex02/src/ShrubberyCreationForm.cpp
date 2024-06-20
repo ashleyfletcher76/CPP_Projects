@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:45:06 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 12:07:55 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:40:24 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,52 @@
 
 //------------Orthodox/constructors-----------//
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-{
-	//std::cout << "ShrubberyCreationForm default constructor initialized." << std::endl;
-}
+ShrubberyCreationForm::ShrubberyCreationForm() :
+	AForm("ShrubberyCreationForm", 145, 137), _target("Default Shrubs") {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	//std::cout << "ShrubberyCreationForm deconstructor initialized." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) :
-	_name(other._name), _grade(other._grade)
-{
-	//std::cout << "ShrubberyCreationForm's copy constructor initialized" <<std::endl;
-}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : _target(other._target) {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
 	if (this != &other)
 	{
 		//std::cout << "ShrubberyCreationForm's copy assignment initialized" << std::endl;
-		_grade = other._grade;
+		_target = other._target;
 	}
 	return (*this);
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :
+	AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
+
 //------------Main Functions-------------//
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
+# define TREE     "      $      \n"\
+                  "     $$$     \n"\
+                  "    $$$$$    \n"\
+                  "   $$$$$$$   \n"\
+                  " $$$$$$$$$$$ \n"\
+                  "$$$$$$$$$$$$$\n"\
+                  "     |||     \n"\
+                  "     |||     \n"\
+
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (!checkSigned())
 		throw FormNotSigned();
-	if (executor.getGrade() > getRequiredGradeToExecute)
+	if (executor.getGrade() > getRequiredGradeToExecute())
 		throw GradeTooLowException();
 	std::ofstream ofs(_target + "_shrubbery");
-	//--------------------------//
-	//--------------------------//
-	//--------------------------//
-	//--------------------------//
-	//--------------------------//
-	//--------------------------//
-	ofs << "Placeholder" << std::endl;
+	if (!ofs)
+	{
+		std::cerr << "Error opening " << _target << "_shrubbery file." << std::endl;
+		return ;
+	}
+	ofs << TREE << std::endl;
 	ofs.close();
 }

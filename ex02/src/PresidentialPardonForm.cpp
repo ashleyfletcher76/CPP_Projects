@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:08 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 10:24:57 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:40:36 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,12 @@
 
 //------------Orthodox/constructors-----------//
 
-PresidentialPardonForm::PresidentialPardonForm()
-{
-	//std::cout << "PresidentialPardonForm default constructor initialized." << std::endl;
-}
+PresidentialPardonForm::PresidentialPardonForm() :
+	AForm("PresidentialPardonForm", 25, 5), _target("Default Prez") {}
 
-PresidentialPardonForm::~PresidentialPardonForm()
-{
-	//std::cout << "PresidentialPardonForm deconstructor initialized." << std::endl;
-}
+PresidentialPardonForm::~PresidentialPardonForm() {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) :
-	_name(other._name), _grade(other._grade)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : _target(other._target)
 {
 	//std::cout << "PresidentialPardonForm's copy constructor initialized" <<std::endl;
 }
@@ -35,9 +29,21 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 	if (this != &other)
 	{
 		//std::cout << "PresidentialPardonForm's copy assignment initialized" << std::endl;
-		_grade = other._grade;
+		_target = other._target;
 	}
 	return (*this);
 }
 
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
+	AForm("PresidentialPardonForm", 25, 5), _target(target) {}
+
 //------------Main Functions-------------//
+
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	if (!checkSigned())
+		throw FormNotSigned();
+	if (executor.getGrade() > getRequiredGradeToExecute())
+		throw GradeTooLowException();
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}

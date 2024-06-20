@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:21 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 12:33:01 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:44:10 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@
 
 //------------Orthodox/constructors-----------//
 
-AForm::AForm() : _name("Default Mr Man"), _signature(false), _requiredGradeMin(150), _executeGrade(125)
-{
-	//std::cout << "Form default constructor initialized." << std::endl;
-}
+AForm::AForm() : _name("Default Mr Man"), _signature(false), _requiredGradeMin(150), _executeGrade(125) {}
 
-AForm::~AForm()
-{
-	//std::cout << "Form deconstructor initialized." << std::endl;
-}
+AForm::~AForm() {}
 
 AForm::AForm(const AForm& other) : _name(other._name), _signature(other._signature),
 	_requiredGradeMin(other._requiredGradeMin), _executeGrade(other._executeGrade)
@@ -54,7 +48,6 @@ AForm::AForm(const std::string &name, int requiredGradeMin, int executeGrade) : 
 		std::cout << "Execute ";
 		throw GradeTooLowException();
 	}
-	//std::cout << "Form's constructor has been initialized." << std::endl;
 }
 
 AForm& AForm::operator=(const AForm& other)
@@ -73,7 +66,7 @@ void	AForm::beSigned(Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _requiredGradeMin)
 	{
-		std::cout << bureaucrat.getName() << "'s";
+		std::cout << bureaucrat.getName() << "'s ";
 		throw GradeTooLowException();
 	}
 	if (_signature)
