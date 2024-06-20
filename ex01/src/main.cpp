@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/19 14:22:45 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:12:14 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,20 @@ void	tooLowGrade()
 	}
 }
 
+void	test()
+{
+	Bureaucrat bob("Bob", 24);
+	Form formOne;
+	std::cout << formOne << std::endl;
+	bob.signForm(formOne);
+	std::cout << formOne << std::endl;
+}
+
 int	main()
 {
 	//tooHighRequired();
 	//tooLowGrade();
-	tooHighGrade();
+	//tooHighGrade();
+	test();
 	return (0);
 }
