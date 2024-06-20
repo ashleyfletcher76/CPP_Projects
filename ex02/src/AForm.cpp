@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:21 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 10:24:18 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 11:28:15 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,5 @@ void	AForm::beSigned(Bureaucrat& bureaucrat)
 
 void	AForm::checkSigned()
 {
-	if (_signature)
-		std::cout << "Signature is already signed for the " << _name << std::endl;
-	else
-		std::cout << "Form is not already signed" << std::endl;
+	return (_signature);
 }

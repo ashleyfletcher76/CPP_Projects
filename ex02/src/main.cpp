@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/19 14:27:15 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 11:50:23 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,16 @@ void	tooLowGrade()
 	}
 }
 
+void	testOne()
+{
+	srand(time(0));
+}
+
 int	main()
 {
 	//tooHighRequired();
 	//tooLowGrade();
-	tooHighGrade();
+	//tooHighGrade();
+	testOne();
 	return (0);
 }

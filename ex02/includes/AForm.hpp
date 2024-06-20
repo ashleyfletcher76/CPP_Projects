@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:25 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 10:18:17 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 11:56:41 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class AForm
 
 	public:
 		AForm();
-		~AForm();
+		virtual ~AForm();
 		AForm(const AForm& other);
 		AForm& operator=(const AForm& other);
 
@@ -41,12 +41,19 @@ class AForm
 		void		setSignature();
 		void		checkSigned();
 
+		virtual void execute(Bureaucrat const & executor) const = 0;
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		class FormNotSigned : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

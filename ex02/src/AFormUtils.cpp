@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 10:19:06 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 10:20:36 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/20 11:19:51 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
 	return ("grade is too low!");
+}
+
+const char* AForm::FormNotSigned::what() const throw()
+{
+	return ("is not signed!");
 }
 
 std::ostream &operator<<(std::ostream &out, AForm const &form)
