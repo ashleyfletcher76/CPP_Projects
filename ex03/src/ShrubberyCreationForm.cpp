@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:45:06 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 16:40:24 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 11:05:38 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	//std::cout << "ShrubberyCreationForm deconstructor initialized." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : _target(other._target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) :
+	AForm("ShrubberyCreationForm", 145, 137), _target(other._target) {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
 	if (this != &other)
 	{
 		//std::cout << "ShrubberyCreationForm's copy assignment initialized" << std::endl;
+		AForm::operator=(other);
 		_target = other._target;
 	}
 	return (*this);
@@ -54,7 +56,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		throw FormNotSigned();
 	if (executor.getGrade() > getRequiredGradeToExecute())
 		throw GradeTooLowException();
-	std::ofstream ofs(_target + "_shrubbery");
+	std::ofstream ofs((_target + "_shrubbery").c_str());
 	if (!ofs)
 	{
 		std::cerr << "Error opening " << _target << "_shrubbery file." << std::endl;

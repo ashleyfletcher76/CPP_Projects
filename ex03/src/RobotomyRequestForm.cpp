@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 16:40:31 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 11:05:33 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ RobotomyRequestForm::RobotomyRequestForm() :
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : _target(other._target)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) :
+	AForm("RobotomyRequestForm", 72, 45), _target(other._target)
 {
 	//std::cout << "RobotomyRequestForm's copy constructor initialized" <<std::endl;
 }
@@ -29,6 +30,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	if (this != &other)
 	{
 		//std::cout << "RobotomyRequestForm's copy assignment initialized" << std::endl;
+		AForm::operator=(other);
 		_target = other._target;
 	}
 	return (*this);

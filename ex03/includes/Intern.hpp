@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:49:22 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 17:03:14 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 09:56:48 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@
 class Intern
 {
 	private:
-		AForm* Shrubs(std::string _target);
-		AForm* Robo(std::string _target);
-		AForm* Prez(std::string _target);
 
 	public:
 		Intern();

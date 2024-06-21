@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:08 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 16:40:36 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 11:05:29 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ PresidentialPardonForm::PresidentialPardonForm() :
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : _target(other._target)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) :
+	AForm("PresidentialPardonForm", 25, 5), _target(other._target)
 {
 	//std::cout << "PresidentialPardonForm's copy constructor initialized" <<std::endl;
 }
@@ -29,6 +30,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 	if (this != &other)
 	{
 		//std::cout << "PresidentialPardonForm's copy assignment initialized" << std::endl;
+		AForm::operator=(other);
 		_target = other._target;
 	}
 	return (*this);

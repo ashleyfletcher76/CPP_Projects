@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/06/20 16:48:29 by asfletch         ###   ########.fr        #
+#    Updated: 2024/06/21 11:07:28 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,14 @@ CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp BureaucratUtils.cpp AFormUtils.cpp \
-	PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+	PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp \
+	Intern.cpp
 OBJ_DIR = obj
 SRC_DIR = src/
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS = $(addprefix $(SRC_DIR)/, $(SRCS)) ./includes/Bureaucrat.hpp ./includes/AForm.hpp \
 	./includes/PresidentialPardonForm.hpp ./includes/RobotomyRequestForm.hpp \
-	./includes/ShrubberyCreationForm.hpp ./includes/umbrella.hpp
+	./includes/ShrubberyCreationForm.hpp ./includes/umbrella.hpp ./includes/Intern.hpp
 
 NAME = ex03
 

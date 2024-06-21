@@ -6,30 +6,66 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:49:06 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 17:02:23 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 10:43:10 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-Intern::Intern() :
-	AForm("Intern", 25, 5), _target("Default Intern") {}
+//------------Orthodox/constructors-----------//
+
+Intern::Intern() {}
 
 Intern::~Intern() {}
 
-Intern::Intern(const Intern& other) : _target(other._target)
-{
-	//std::cout << "Intern's copy constructor initialized" <<std::endl;
-}
+Intern::Intern(const Intern& other) {(void)other;}
 
 Intern& Intern::operator=(const Intern& other)
 {
-	if (this != &other)
-	{
-		//std::cout << "PresidentialPardonForm's copy assignment initialized" << std::endl;
-		_target = other._target;
-	}
+	(void)other;
 	return (*this);
 }
 
-AForm* Intern::makeForm(std::string name, const std::string &target) {}
+//------------Main Functions-------------//
+
+AForm* createPresidentialPardonForm(const std::string &target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
+AForm* createRobotomyRequestForm(const std::string &target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+AForm* createShrubberyCreationForm(const std::string &target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+AForm* Intern::makeForm(std::string name, const std::string &target)
+{
+	typedef AForm* (*FormCreator)(const std::string &target);
+	struct FormType
+	{
+		std::string name;
+		FormCreator creator;
+	};
+	static const FormType formTypes[] =
+	{
+		{"robotomy request", createRobotomyRequestForm},
+		{"presidential pardon", createPresidentialPardonForm},
+		{"shrubbery creation", createShrubberyCreationForm}
+	};
+	for (size_t i = 0; i < sizeof(formTypes) / sizeof(FormType); ++i)
+	{
+		if (formTypes[i].name == name)
+		{
+			std::cout << "Intern creates " << name << std::endl;
+			return (formTypes[i].creator(target));
+		}
+	}
+	std::cout << "Error in form name: " << name
+		<< "\nTry again. Valid form names are: robotomy request, presidential pardon\nor shrubbery creation" << std::endl;
+			return (NULL);
+}

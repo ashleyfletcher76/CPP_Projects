@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 14:55:02 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 14:56:21 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 10:36:05 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 #endif

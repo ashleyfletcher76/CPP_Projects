@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/19 13:33:55 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 11:10:32 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,10 @@ void	testFive()
 
 int	main()
 {
-	// testOne();
-	// testTwo();
-	// testThree();
+	testOne();
+	testTwo();
+	testThree();
 	testFour();
-	//testFive();
+	testFive();
 	return (0);
 }

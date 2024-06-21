@@ -6,107 +6,30 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 16:45:25 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 10:43:51 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "umbrella.hpp"
-#include <ctime>
-#include <cstdlib>
-
-void	ShrubFailure()
-{
-	try
-	{
-		Bureaucrat Neil("Neil", 147);
-		ShrubberyCreationForm Shrub("Home");
-		Neil.signForm(Shrub);
-		Neil.executeForm(Shrub);
-		std::ifstream file("Home_shrubbery");
-		if (!file.is_open())
-		{
-			std::cerr << "Failed to create/open file" << std::endl;
-		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-}
-
-void	ShrubSuccess()
-{
-	try
-	{
-		Bureaucrat Neil("Neil", 54);
-		ShrubberyCreationForm Shrub("Home");
-		Neil.signForm(Shrub);
-		Neil.executeForm(Shrub);
-		std::ifstream file("Home_shrubbery");
-		if (!file.is_open())
-		{
-			std::cerr << "Failed to create/open file" << std::endl;
-		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-}
-
-void	PrezTest()
-{
-	try
-	{
-		Bureaucrat Bob("Bob", 25);
-		PresidentialPardonForm PrezOne("Arthur Dent");
-		Bob.signForm(PrezOne);
-		Bob.executeForm(PrezOne);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << "--------------" << std::endl;
-	try
-	{
-		Bureaucrat Dave("Dave", 2);
-		PresidentialPardonForm PrezOne("Arthur Dent");
-		Dave.signForm(PrezOne);
-		Dave.executeForm(PrezOne);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-}
-
-void	RoboTest()
-{
-	try
-	{
-		Bureaucrat Bob("Bob", 25);
-		RobotomyRequestForm RoboForm("RoboForm");
-		Bob.signForm(RoboForm);
-		for(int i = 0; i < 5; i++)
-		{
-			Bob.executeForm(RoboForm);
-			std::cout << "-------------" << std::endl;
-		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-}
 
 int	main()
 {
-	//srand(time(0));
-	//RoboTest();
-	//PrezTest();
-	//ShrubSuccess();
-	ShrubFailure();
+	Intern someRandomIntern;
+
+	AForm* formOne = someRandomIntern.makeForm("robotomy request", "David");
+	if (formOne)
+		delete (formOne);
+	std::cout << "-----------" << std::endl;
+	AForm* formTwo = someRandomIntern.makeForm("presidential pardon", "Janine");
+	if (formTwo)
+		delete (formTwo);
+	std::cout << "-----------" << std::endl;
+	AForm* formThree = someRandomIntern.makeForm("shrubbery creation", "Petra");
+	if (formThree)
+		delete (formThree);
+	std::cout << "-----------" << std::endl;
+	AForm* formFour = someRandomIntern.makeForm("not a form", "Loser");
+	if (formFour)
+		delete (formFour);
 	return (0);
 }

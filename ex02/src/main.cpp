@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 16:45:25 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 11:08:21 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,10 @@ void	RoboTest()
 
 int	main()
 {
-	//srand(time(0));
-	//RoboTest();
-	//PrezTest();
-	//ShrubSuccess();
+	srand(time(0));
+	RoboTest();
+	PrezTest();
+	ShrubSuccess();
 	ShrubFailure();
 	return (0);
 }
