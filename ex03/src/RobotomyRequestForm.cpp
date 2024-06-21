@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/21 11:05:33 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 13:36:28 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 //------------Orthodox/constructors-----------//
 
-RobotomyRequestForm::RobotomyRequestForm() :
-	AForm("RobotomyRequestForm", 72, 45), _target("Default Robo") {}
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
+	AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) :
-	AForm("RobotomyRequestForm", 72, 45), _target(other._target)
+	AForm(other), _target(other._target)
 {
 	//std::cout << "RobotomyRequestForm's copy constructor initialized" <<std::endl;
 }
@@ -36,9 +36,6 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	return (*this);
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
-	AForm("RobotomyRequestForm", 72, 45), _target(target) {}
-
 //------------Main Functions-------------//
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
@@ -49,7 +46,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		throw GradeTooLowException();
 	std::cout << "Yes this is a drilling sound." << std::endl;
 	if (rand() % 2 == 0)
-		std::cout << _target << "has been robotomized!" << std::endl;
+		std::cout << _target << " has been robotomized!" << std::endl;
 	else
-		std::cout << _target << "did not get robotomized....unfortunately." << std::endl;
+		std::cout << _target << " did not get robotomized....unfortunately." << std::endl;
 }

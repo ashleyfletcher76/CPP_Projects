@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:08 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/21 11:05:10 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:45:00 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 //------------Orthodox/constructors-----------//
 
-PresidentialPardonForm::PresidentialPardonForm() :
-	AForm("PresidentialPardonForm", 25, 5), _target("Default Prez") {}
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
+	AForm("PresidentialPardonForm", 25, 5), _target(target) {}
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) :
-AForm("PresidentialPardonForm", 25, 5), _target(other._target)
+AForm(other), _target(other._target)
 {
 	//std::cout << "PresidentialPardonForm's copy constructor initialized" <<std::endl;
 }
@@ -35,9 +35,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 	}
 	return (*this);
 }
-
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
-	AForm("PresidentialPardonForm", 25, 5), _target(target) {}
 
 //------------Main Functions-------------//
 

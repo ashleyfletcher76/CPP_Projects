@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/21 11:05:19 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:49:51 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 //------------Orthodox/constructors-----------//
 
-RobotomyRequestForm::RobotomyRequestForm() :
-	AForm("RobotomyRequestForm", 72, 45), _target("Default Robo") {}
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
+	AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) :
-	AForm("RobotomyRequestForm", 72, 45), _target(other._target)
+	AForm(other), _target(other._target)
 {
 	//std::cout << "RobotomyRequestForm's copy constructor initialized" <<std::endl;
 }
@@ -35,9 +35,6 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	}
 	return (*this);
 }
-
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
-	AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 
 //------------Main Functions-------------//
 

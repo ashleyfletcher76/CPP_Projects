@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/21 11:08:21 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 13:00:22 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	PrezTest()
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 }
 
 void	RoboTest()
@@ -101,12 +100,30 @@ void	RoboTest()
 	}
 }
 
+void	checkOperators()
+{
+	RobotomyRequestForm RoboOne("Home");
+	RobotomyRequestForm RoboTwo = RoboOne;
+	RobotomyRequestForm RoboThree("Test");
+	Bureaucrat Bob("Bob", 5);
+
+	std::cout << RoboOne << "\n" << std::endl;
+	std::cout << RoboTwo << "\n" << std::endl;
+	std::cout << RoboThree << "\n" << std::endl;
+	Bob.signForm(RoboTwo);
+	RoboThree = RoboTwo;
+	std::cout << RoboOne << "\n" << std::endl;
+	std::cout << RoboTwo << "\n" << std::endl;
+	std::cout << RoboThree << std::endl;
+}
+
 int	main()
 {
 	srand(time(0));
-	RoboTest();
-	PrezTest();
-	ShrubSuccess();
-	ShrubFailure();
+	//RoboTest();
+	//PrezTest();
+	//ShrubSuccess();
+	//ShrubFailure();
+	checkOperators();
 	return (0);
 }

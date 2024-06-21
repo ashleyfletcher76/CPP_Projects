@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 16:40:51 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 11:54:15 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	if (this != &other)
 	{
 		//std::cout << "Bureaucrat's copy assignment initialized" << std::endl;
+		_name = other._name;
 		_grade = other._grade;
 	}
 	return (*this);
@@ -52,16 +53,16 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade
 
 void	Bureaucrat::incrementGrade()
 {
-	if (_grade >= 150)
+	if (_grade <= 1)
 		throw GradeTooLowException();
-	++_grade;
+	--_grade;
 }
 
 void	Bureaucrat::decrementGrade()
 {
-	if (_grade <= 1)
+	if (_grade >= 150)
 		throw GradeTooHighException();
-	--_grade;
+	++_grade;
 }
 
 void	Bureaucrat::signForm(AForm &form)

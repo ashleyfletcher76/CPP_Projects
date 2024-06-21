@@ -6,22 +6,17 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:29:21 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 12:27:03 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:13:29 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : _name("Default Mr Man"), _signature(false), _requiredGradeMin(150), _executeGrade(125)
-{
-	//std::cout << "Form default constructor initialized." << std::endl;
-}
+Form::Form() :
+	_name("Default Mr Man"), _signature(false), _requiredGradeMin(150), _executeGrade(125) {}
 
-Form::~Form()
-{
-	//std::cout << "Form deconstructor initialized." << std::endl;
-}
+Form::~Form() {}
 
 Form::Form(const Form& other) : _name(other._name), _signature(other._signature),
 	_requiredGradeMin(other._requiredGradeMin), _executeGrade(other._executeGrade)
@@ -69,12 +64,12 @@ void	Form::beSigned(Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _requiredGradeMin)
 	{
-		std::cout << bureaucrat.getName() << "'s";
+		std::cout << bureaucrat.getName() << "'s ";
 		throw GradeTooLowException();
 	}
 	if (_signature)
-		std::cout << bureaucrat.getName() << " cant sign " << _name << "because it is already signed!"
-			<< std::endl;
+		std::cout << bureaucrat.getName() << " cant sign " << _name
+			<< "because it is already signed!" << std::endl;
 	else
 	{
 		std::cout << bureaucrat.getName() << " signed the " << _name << std::endl;
@@ -85,43 +80,4 @@ void	Form::beSigned(Bureaucrat& bureaucrat)
 bool	Form::checkSigned() const
 {
 	return (_signature);
-}
-
-const char* Form::GradeTooHighException::what() const throw()
-{
-	return ("grade is too high!");
-}
-
-const char* Form::GradeTooLowException::what() const throw()
-{
-	return ("grade is too low!");
-}
-
-void	Form::setSignature()
-{
-	_signature = true;
-}
-
-std::string Form::getName() const
-{
-	return(_name);
-}
-
-int Form::getRequiredGradeToSign() const
-{
-	return(_requiredGradeMin);
-}
-
-int Form::getRequiredGradeToExecute() const
-{
-	return(_executeGrade);
-}
-
-std::ostream &operator<<(std::ostream &out, Form const &form)
-{
-	out << form.getName() << ", form's required grade to sign is " << form.getRequiredGradeToSign() << ".\n"
-		<< "The required grade to execute is " << form.getRequiredGradeToExecute() << ".\n"
-		<< "The signed status is - "
-		<< (form.checkSigned() ? "Yes" : "No") << "." << std::endl;
-	return (out);
 }

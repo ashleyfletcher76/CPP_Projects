@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:49:06 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/21 10:43:10 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 13:22:40 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ AForm* createShrubberyCreationForm(const std::string &target)
 
 AForm* Intern::makeForm(std::string name, const std::string &target)
 {
-	typedef AForm* (*FormCreator)(const std::string &target);
+	typedef AForm* (*FormCreator)(const std::string &target); // matches to functions with this signature
 	struct FormType
 	{
 		std::string name;
@@ -57,7 +57,7 @@ AForm* Intern::makeForm(std::string name, const std::string &target)
 		{"presidential pardon", createPresidentialPardonForm},
 		{"shrubbery creation", createShrubberyCreationForm}
 	};
-	for (size_t i = 0; i < sizeof(formTypes) / sizeof(FormType); ++i)
+	for (size_t i = 0; i < 3; ++i)
 	{
 		if (formTypes[i].name == name)
 		{

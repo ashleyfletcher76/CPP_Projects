@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:44:45 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/20 15:13:46 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:51:05 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 #include "AForm.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 class RobotomyRequestForm : public AForm
 {
 	private:
 		std::string _target;
 	public:
-		RobotomyRequestForm();
+		RobotomyRequestForm(const std::string &target);
 		~RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm& other);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 
-		RobotomyRequestForm(const std::string &target);
 		void	execute(Bureaucrat const & executor) const;
 };
 

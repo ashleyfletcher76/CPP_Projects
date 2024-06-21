@@ -6,25 +6,37 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:30:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/21 11:09:27 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:18:56 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-void	tooHighRequired()
+void	correctVersion()
+{
+	try
+	{
+		Bureaucrat bureaucrat("David", 5);
+		Form formOne("Form 1", 150, 100);
+
+		std::cout << bureaucrat << "\n" << std::endl;
+		std::cout << formOne << std::endl;
+		bureaucrat.signForm(formOne);
+		std::cout << "\n" << formOne << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+}
+
+void	tooLowRequired()
 {
 	try
 	{
 		Bureaucrat bureaucrat("David", 5);
 		Form formOne("Form 1", 151, 100);
-
-		std::cout << bureaucrat.getName() << std::endl;
-		std::cout << bureaucrat.getGrade() << std::endl;
-		std::cout << formOne.getRequiredGradeToSign() << std::endl;
-		std::cout << formOne.getRequiredGradeToExecute() << std::endl;
-		bureaucrat.signForm(formOne);
 	}
 	catch(const std::exception& e)
 	{
@@ -32,36 +44,15 @@ void	tooHighRequired()
 	}
 }
 
-void	tooHighGrade()
-{
-	try
-	{
-		Bureaucrat bureaucrat("David", 0);
-		Form formOne("Form 1", 151, 100);
-
-		std::cout << bureaucrat.getName() << std::endl;
-		std::cout << bureaucrat.getGrade() << std::endl;
-		std::cout << formOne.getRequiredGradeToSign() << std::endl;
-		std::cout << formOne.getRequiredGradeToExecute() << std::endl;
-		bureaucrat.signForm(formOne);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-}
-
-void	tooLowGrade()
+void	tooLowGradeTosign()
 {
 	try
 	{
 		Bureaucrat bureaucrat("David", 102);
 		Form formOne("Form 1", 100, 100);
 
-		std::cout << bureaucrat.getName() << std::endl;
-		std::cout << bureaucrat.getGrade() << std::endl;
-		std::cout << formOne.getRequiredGradeToSign() << std::endl;
-		std::cout << formOne.getRequiredGradeToExecute() << std::endl;
+		std::cout << bureaucrat << "\n" << std::endl;
+		std::cout << formOne << std::endl;
 		bureaucrat.signForm(formOne);
 	}
 	catch(const std::exception& e)
@@ -70,20 +61,21 @@ void	tooLowGrade()
 	}
 }
 
-void	test()
+void	fullVersion()
 {
 	Bureaucrat bob("Bob", 24);
 	Form formOne;
-	std::cout << formOne << std::endl;
+	std::cout << bob << "\n" << std::endl;
+	std::cout << formOne << "\n" << std::endl;
 	bob.signForm(formOne);
-	std::cout << formOne << std::endl;
+	std::cout << "\n" << formOne << std::endl;
 }
 
 int	main()
 {
-	tooHighRequired();
-	tooLowGrade();
-	tooHighGrade();
-	test();
+	//correctVersion();
+	//tooLowRequired();
+	//tooLowGradeTosign();
+	fullVersion();
 	return (0);
 }

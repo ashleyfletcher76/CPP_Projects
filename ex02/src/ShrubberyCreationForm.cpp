@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:45:06 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/21 11:08:01 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:50:22 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 //------------Orthodox/constructors-----------//
 
-ShrubberyCreationForm::ShrubberyCreationForm() :
-	AForm("ShrubberyCreationForm", 145, 137), _target("Default Shrubs") {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :
+	AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
@@ -23,7 +23,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) :
-	AForm("ShrubberyCreationForm", 145, 137), _target(other._target) {}
+	AForm(other), _target(other._target) {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
@@ -35,9 +35,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	}
 	return (*this);
 }
-
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :
-	AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
 
 //------------Main Functions-------------//
 
