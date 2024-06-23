@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:59:29 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 12:19:44 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/23 15:08:52 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ bool isChar(const std::string& toConvert)
 
 bool isInt(const std::string& toConvert)
 {
+	if (toConvert.empty())
+		return (false);
 	std::istringstream iss(toConvert);
 	int	i;
 	iss >> i;
@@ -27,16 +29,20 @@ bool isInt(const std::string& toConvert)
 
 bool isDouble(const std::string& toConvert)
 {
+	if (toConvert.empty() || toConvert.find('f') != std::string::npos)
+		return(false);
 	std::istringstream iss(toConvert);
 	double	d;
 	iss >> d;
-	return(!iss.fail() && iss.eof() && toConvert.find('f') != std::string::npos);
+	return(!iss.fail() && iss.eof());
 }
 
 bool isFloat(const std::string& toConvert)
 {
-	std::istringstream iss(toConvert);
+	if (toConvert.empty() || toConvert.back() != 'f')
+		return (false);
+	std::istringstream iss(toConvert.substr(0, toConvert.size() - 1));
 	float	f;
 	iss >> f;
-	return(!iss.fail() && iss.eof() && toConvert.find('f') != std::string::npos);
+	return(!iss.fail() && iss.eof());
 }
