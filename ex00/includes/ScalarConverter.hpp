@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:18:54 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 15:51:49 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/23 15:57:24 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void	convertFloat(std::string& toConvert);
 
 //utils
 bool checkNanAndRange(double number, const std::string& type);
+bool checkIntRange(std::string& toConvert);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:36:20 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 15:46:24 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/23 16:03:07 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,8 @@ void	convertInt(std::string& toConvert)
 {
 	try
 	{
-		long long temp = stoll(toConvert);
-		if (temp < std::numeric_limits<int>::min() || temp > std::numeric_limits<int>::max())
-		{
-			std::cout << "int: out of range" << std::endl;
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "float: impossible" << std::endl;
-			std::cout << "double: impossible" << std::endl;
+		if (!checkIntRange(toConvert))
 			return ;
-		}
 		int	i = std::stoi(toConvert);
 		if (i < std::numeric_limits<char>::min() || i > std::numeric_limits<char>::max() || !std::isprint(i))
 			std::cout << "char: Non displayable." << std::endl;
@@ -48,7 +41,7 @@ void	convertInt(std::string& toConvert)
 		float	f = static_cast<float>(i);
 		std::cout << std::fixed << std::setprecision(1) << "float: " << f << "f" << std::endl;
 		double	d = static_cast<double>(i);
-		std::cout << "double: " << d << ".0" << std::endl;
+		std::cout << "double: " << d << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -61,22 +54,8 @@ void	convertDouble(std::string& toConvert)
 	try
 	{
 		double	d = std::stod(toConvert);
-		if (d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max())
-		{
-			std::cout << "double: out of range" << std::endl;
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: impossible" << std::endl;
+		if (!checkNanAndRange(d, "double"))
 			return ;
-		}
-		 if (std::isnan(d))
-		{
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: nanf" << std::endl;
-			std::cout << "double: nan" << std::endl;
-			return ;
-		}
 		if (d < std::numeric_limits<char>::min() || d > std::numeric_limits<char>::max()
 			|| !std::isprint(static_cast<int>(d)))
 			std::cout << "char: Non displayable." << std::endl;
@@ -99,22 +78,8 @@ void	convertFloat(std::string& toConvert)
 	try
 	{
 		float f = std::stof(toConvert);
-		if (f < std::numeric_limits<int>::min() || f > std::numeric_limits<int>::max())
-		{
-			std::cout << "float: out of range" << std::endl;
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "double: impossible" << std::endl;
+		if (!checkNanAndRange(f, "float"))
 			return ;
-		}
-		if (std::isnan(f))
-		{
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: nanf" << std::endl;
-			std::cout << "double: nan" << std::endl;
-			return ;
-		}
 		if (f < std::numeric_limits<char>::min() || f > std::numeric_limits<char>::max()
 			|| !std::isprint(static_cast<int>(f)))
 			std::cout << "char: Non displayable." << std::endl;
