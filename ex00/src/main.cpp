@@ -6,9 +6,13 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:36:52 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 11:40:06 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/23 12:20:16 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
+int	main()
+{
+	
+}

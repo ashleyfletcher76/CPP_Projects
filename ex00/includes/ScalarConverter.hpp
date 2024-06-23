@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:18:54 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 11:35:53 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/23 12:08:17 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define SCALERCONVERTER_HPP
 
 #include <iostream>
+#include <limits>
+#include <cctype>
+#include <sstream>
 
 class ScalarConverter
 {
@@ -26,5 +29,13 @@ class ScalarConverter
 	public:
 		static void convert(std::string& toConvert);
 };
+
+// Check which functions
+bool isChar(const std::string& toConvert);
+bool isInt(const std::string& toConvert);
+bool isDouble(const std::string& toConvert);
+bool isFloat(const std::string& toConvert);
+
+//Conversion function
 
 #endif
