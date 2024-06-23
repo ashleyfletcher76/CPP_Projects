@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:18:54 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 15:57:24 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/23 16:24:44 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class ScalarConverter
 	private:
 		ScalarConverter();
 		~ScalarConverter();
-		ScalarConverter(const ScalarConverter& other);
-		ScalarConverter& operator=(const ScalarConverter& other);
+		ScalarConverter(const ScalarConverter&);
+		ScalarConverter& operator=(const ScalarConverter&);
 
 	public:
 		static void convert(std::string toConvert);
