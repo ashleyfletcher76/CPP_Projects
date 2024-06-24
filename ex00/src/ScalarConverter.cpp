@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:19:27 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 16:06:29 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:53:00 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter&) {return (*th
 
 void ScalarConverter::convert(std::string toConvert)
 {
+	if (checkINF(toConvert))
+		return ;
 	if (isChar(toConvert))
 		convertChar(toConvert);
 	else if (isInt(toConvert))

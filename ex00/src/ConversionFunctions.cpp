@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:36:20 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 16:03:07 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:53:35 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	convertChar(std::string& toConvert)
 	double	d = static_cast<double>(c);
 		std::cout << "double: " << d << ".0" << std::endl;
 }
+
 void	convertInt(std::string& toConvert)
 {
 	try

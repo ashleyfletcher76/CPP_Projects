@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:50:34 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 16:01:13 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:52:11 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,25 @@ bool checkIntRange(std::string& toConvert)
 		return (false);
 	}
 	return (true);
+}
+
+bool checkINF(const std::string& toConvert)
+{
+	if (toConvert == "nan" || toConvert == "+nan" || toConvert == "-nan")
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+		return (true);
+	}
+	else if (toConvert == "inf" || toConvert == "+inf" || toConvert == "-inf")
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << toConvert << "f" << std::endl;
+		std::cout << "double: " << toConvert << std::endl;
+		return (true);
+	}
+	return (false);
 }

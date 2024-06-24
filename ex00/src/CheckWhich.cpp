@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:59:29 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 15:08:52 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:41:33 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ bool isDouble(const std::string& toConvert)
 {
 	if (toConvert.empty() || toConvert.find('f') != std::string::npos)
 		return(false);
+	if (toConvert == "inf" || toConvert == "+inf" || toConvert == "-inf" || toConvert == "nan")
+		return (true);
 	std::istringstream iss(toConvert);
 	double	d;
 	iss >> d;
@@ -41,6 +43,8 @@ bool isFloat(const std::string& toConvert)
 {
 	if (toConvert.empty() || toConvert.back() != 'f')
 		return (false);
+	if (toConvert == "inf" || toConvert == "+inf" || toConvert == "-inf" || toConvert == "nan")
+		return (true);
 	std::istringstream iss(toConvert.substr(0, toConvert.size() - 1));
 	float	f;
 	iss >> f;
