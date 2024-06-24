@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:17:13 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 12:50:27 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:26:42 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void identify(Base& p)
 		(void)a;
 		return ;
 	}
-	catch(std::bad_cast& badCast) {}
+	catch(...) {}
 	try
 	{
 		B& b = dynamic_cast<B&>(p);
@@ -54,7 +54,7 @@ void identify(Base& p)
 		(void)b;
 		return ;
 	}
-	catch(std::bad_cast& badCast) {}
+	catch(...) {}
 	try
 	{
 		C& c = dynamic_cast<C&>(p);
@@ -62,6 +62,6 @@ void identify(Base& p)
 		(void)c;
 		return ;
 	}
-	catch(std::bad_cast& badCast) {}
+	catch(...) {}
 	std::cout << "Not a valid casting" << std::endl;
 }

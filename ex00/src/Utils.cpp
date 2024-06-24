@@ -6,15 +6,45 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:50:34 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 10:25:07 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:29:59 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-bool checkMaxMinInt(std::string& toConvert)
+double stringConversion(const std::string& toConvert)
 {
-	long long temp = std::stoll(toConvert);
+	if (toConvert == "nan" || toConvert == "NaN")
+		return std::numeric_limits<double>::quiet_NaN();
+	else if (toConvert == "inf" || toConvert == "+inf" || toConvert == "Inf" || toConvert == "+Inf")
+		return std::numeric_limits<double>::infinity();
+	else if (toConvert == "-inf" || toConvert == "-Inf")
+		return -std::numeric_limits<double>::infinity();
+	else if (toConvert == "nanf" || toConvert == "NaNf")
+		return std::numeric_limits<float>::quiet_NaN();
+	double value;
+	std::stringstream ss(toConvert);
+	if (!(ss >> value) || !ss.eof())
+		throw std::invalid_argument("Invalid argument!");
+	return (value);
+}
+
+bool hasMultipleDots(const std::string& toConvert)
+{
+	std::string::size_type	dot = 0;
+
+	for(std::string::size_type i = 0; i < toConvert.length(); i++)
+	{
+		if (toConvert[i] == '.')
+			dot++;
+		if (dot > 1)
+			return (true);
+	}
+	return (false);
+}
+
+bool checkMaxMinInt(double temp)
+{
 	if (temp < std::numeric_limits<int>::min() || temp > std::numeric_limits<int>::max())
 	{
 		std::cout << "char: impossible" << std::endl;
@@ -50,3 +80,4 @@ void	checkArg(std::string& toConvert, double value)
 	else
 		convertDouble(toConvert);
 }
+

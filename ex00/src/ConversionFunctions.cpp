@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:36:20 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 10:31:31 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:52:03 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	convertInt(std::string& toConvert)
 {
 	try
 	{
-		int	i = std::stoi(toConvert);
-		if (i < std::numeric_limits<char>::min() || i > std::numeric_limits<char>::max() || !std::isprint(i))
+		int	i = atof(toConvert.c_str());
+		if (i < std::numeric_limits<char>::min()
+			|| i > std::numeric_limits<char>::max() || !std::isprint(i))
 			std::cout << "char: Non displayable." << std::endl;
 		else
 			std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
@@ -50,11 +51,10 @@ void	convertInt(std::string& toConvert)
 
 void	convertDouble(std::string& toConvert)
 {
-
 	try
 	{
-		double	d = std::stod(toConvert);
-		if (checkMaxMinInt(toConvert))
+		double	d = atof(toConvert.c_str());
+		if (checkMaxMinInt(d))
 			return ;
 		if (d < std::numeric_limits<char>::min() || d > std::numeric_limits<char>::max()
 			|| !std::isprint(static_cast<int>(d)))
@@ -77,7 +77,7 @@ void	convertFloat(std::string& toConvert)
 {
 	try
 	{
-		float f = std::stof(toConvert);
+		float f = atof(toConvert.c_str());
 		if (f < std::numeric_limits<char>::min() || f > std::numeric_limits<char>::max()
 			|| !std::isprint(static_cast<int>(f)))
 			std::cout << "char: Non displayable." << std::endl;

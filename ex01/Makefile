@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/06/23 16:17:41 by asfletch         ###   ########.fr        #
+#    Updated: 2024/06/24 15:35:33 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ COLOUR_END = \033[0m
 
 CC = c++
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98
+CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98 -fsanitize=address -fsanitize=undefined
 SRCS = main.cpp Serializer.cpp
 OBJ_DIR = obj
 SRC_DIR = src/

@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:59:29 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 10:21:41 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:52:06 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool isDouble(const std::string& toConvert)
 
 bool isFloat(const std::string& toConvert)
 {
-	if (toConvert.empty() || toConvert.back() != 'f')
+	if (toConvert.empty() || toConvert[toConvert.size() - 1] != 'f')
 		return (false);
 	if (toConvert == "inf" || toConvert == "+inf" || toConvert == "-inf" || toConvert == "nan")
 		return (true);

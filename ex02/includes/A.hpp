@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:34:30 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 12:44:08 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:57:51 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,5 @@
 #include "Base.hpp"
 
 class A : public Base {};
-
-class Test : public Base {};
 
 #endif

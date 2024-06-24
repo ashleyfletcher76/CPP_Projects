@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:39:26 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 12:46:09 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:05:04 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	main()
 	std::cout << "Test invalid class" << std::endl;
 	identify(p);
 	identify(*p);
+	delete p;
 	return (0);
 }

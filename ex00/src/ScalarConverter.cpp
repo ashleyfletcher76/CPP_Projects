@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:19:27 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 10:15:00 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:26:42 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,14 @@ void ScalarConverter::convert(std::string toConvert)
 {
 	double value;
 
+	if (hasMultipleDots(toConvert))
+	{
+		std::cout << "Not a valid argument." << std::endl;
+		return ;
+	}
 	try
 	{
-		value = std::stod(toConvert);
+		value = stringConversion(toConvert);
 	}
 	catch(...)
 	{
