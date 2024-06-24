@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:59:29 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 09:41:33 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:21:41 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ bool isInt(const std::string& toConvert)
 	if (toConvert.empty())
 		return (false);
 	std::istringstream iss(toConvert);
-	int	i;
+	long long	i;
 	iss >> i;
-	return (!iss.fail() && iss.eof());
+	return (!iss.fail() && iss.eof()
+		&& i >= std::numeric_limits<int>::min() && i <= std::numeric_limits<int>::max());
 }
 
 bool isDouble(const std::string& toConvert)

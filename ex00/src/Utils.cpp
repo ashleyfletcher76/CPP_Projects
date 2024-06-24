@@ -6,66 +6,47 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:50:34 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 09:52:11 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:25:07 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-bool checkNanAndRange(double number, const std::string& type)
+bool checkMaxMinInt(std::string& toConvert)
 {
-	if (number < std::numeric_limits<int>::min() || number > std::numeric_limits<int>::max())
-	{
-		std::cout << type << ": out of range" << std::endl;
-		std::cout << "-----------------" << std::endl;
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "double: impossible" << std::endl;
-		std::cout << "float: impossible" << std::endl;
-		return (false);
-	}
-	if (std::isnan(number))
-	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: nanf" << std::endl;
-		std::cout << "double: nan" << std::endl;
-		return (false);
-	}
-	return (true);
-}
-
-bool checkIntRange(std::string& toConvert)
-{
-	long long temp = stoll(toConvert);
+	long long temp = std::stoll(toConvert);
 	if (temp < std::numeric_limits<int>::min() || temp > std::numeric_limits<int>::max())
 	{
-		std::cout << "int: out of range" << std::endl;
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: impossible" << std::endl;
-		return (false);
-	}
-	return (true);
-}
-
-bool checkINF(const std::string& toConvert)
-{
-	if (toConvert == "nan" || toConvert == "+nan" || toConvert == "-nan")
-	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: nanf" << std::endl;
-		std::cout << "double: nan" << std::endl;
-		return (true);
-	}
-	else if (toConvert == "inf" || toConvert == "+inf" || toConvert == "-inf")
-	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << toConvert << "f" << std::endl;
-		std::cout << "double: " << toConvert << std::endl;
+		float f = static_cast<float>(temp);
+		std::cout << std::fixed << std::setprecision(1) << "float: " << f << "f" << std::endl;
+		double d = static_cast<double>(temp);
+		std::cout << "double: " << d << std::endl;
 		return (true);
 	}
 	return (false);
+}
+
+void	checkArg(std::string& toConvert, double value)
+{
+	if (std::isnan(value))
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+	}
+	else if (std::isinf(value))
+	{
+		std::string sign = (value > 0) ? "+" : "-";
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << sign << "inff" << std::endl;
+		std::cout << "double: " << sign << "inf" << std::endl;
+	}
+	else if (toConvert.find('f') != std::string::npos)
+		convertFloat(toConvert);
+	else
+		convertDouble(toConvert);
 }

@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:19:27 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 09:53:00 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:15:00 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,21 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter&) {return (*th
 
 void ScalarConverter::convert(std::string toConvert)
 {
-	if (checkINF(toConvert))
+	double value;
+
+	try
+	{
+		value = std::stod(toConvert);
+	}
+	catch(...)
+	{
+		if (isChar(toConvert))
+			convertChar(toConvert);
+		else if (isInt(toConvert))
+			convertInt(toConvert);
+		else
+			std::cout << "Not a valid argument." << std::endl;
 		return ;
-	if (isChar(toConvert))
-		convertChar(toConvert);
-	else if (isInt(toConvert))
-		convertInt(toConvert);
-	else if (isDouble(toConvert))
-		convertDouble(toConvert);
-	else if (isFloat(toConvert))
-		convertFloat(toConvert);
-	else
-		std::cout << "Not a valid argument." << std::endl;
+	}
+	checkArg(toConvert, value);
 }

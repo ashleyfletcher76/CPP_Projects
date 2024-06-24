@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:18:54 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 09:52:31 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:23:23 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ void	convertDouble(std::string& toConvert);
 void	convertFloat(std::string& toConvert);
 
 //utils
-bool checkNanAndRange(double number, const std::string& type);
-bool checkIntRange(std::string& toConvert);
-bool checkINF(const std::string& toConvert);
+bool	checkMaxMinInt(std::string& toConvert);
+void	checkArg(std::string& toConvert, double value);
 
 #endif

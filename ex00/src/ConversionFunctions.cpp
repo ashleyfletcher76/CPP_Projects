@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 11:36:20 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 09:53:35 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:31:31 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	convertInt(std::string& toConvert)
 {
 	try
 	{
-		if (!checkIntRange(toConvert))
-			return ;
 		int	i = std::stoi(toConvert);
 		if (i < std::numeric_limits<char>::min() || i > std::numeric_limits<char>::max() || !std::isprint(i))
 			std::cout << "char: Non displayable." << std::endl;
@@ -52,10 +50,11 @@ void	convertInt(std::string& toConvert)
 
 void	convertDouble(std::string& toConvert)
 {
+
 	try
 	{
 		double	d = std::stod(toConvert);
-		if (!checkNanAndRange(d, "double"))
+		if (checkMaxMinInt(toConvert))
 			return ;
 		if (d < std::numeric_limits<char>::min() || d > std::numeric_limits<char>::max()
 			|| !std::isprint(static_cast<int>(d)))
@@ -79,8 +78,6 @@ void	convertFloat(std::string& toConvert)
 	try
 	{
 		float f = std::stof(toConvert);
-		if (!checkNanAndRange(f, "float"))
-			return ;
 		if (f < std::numeric_limits<char>::min() || f > std::numeric_limits<char>::max()
 			|| !std::isprint(static_cast<int>(f)))
 			std::cout << "char: Non displayable." << std::endl;
