@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/06/23 17:34:25 by asfletch         ###   ########.fr        #
+#    Updated: 2024/06/24 12:11:33 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ COLOUR_END = \033[0m
 CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98
-SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp
+SRCS = main.cpp Functions.cpp
 OBJ_DIR = obj
 SRC_DIR = src/
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))

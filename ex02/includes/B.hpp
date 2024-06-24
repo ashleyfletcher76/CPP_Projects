@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:35:19 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 17:38:17 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:16:42 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,7 @@
 # define B_HPP
 
 #include "Base.hpp"
-#include <iostream>
 
-class B : public Base
-{
-	private:
-
-	public:
-		B();
-		~B();
-};
-
-B::B()
-{
-}
-
-B::~B()
-{
-}
-
+class B : public Base {};
 
 #endif

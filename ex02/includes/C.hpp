@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:36:52 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/23 17:37:58 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:16:38 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,7 @@
 # define C_HPP
 
 #include "Base.hpp"
-#include <iostream>
 
-class C : public Base
-{
-	private:
-
-	public:
-		C();
-		~C();
-};
-
-C::C()
-{
-}
-
-C::~C()
-{
-}
-
+class C : public Base {};
 
 #endif
