@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:07:32 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/26 15:42:56 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/26 16:10:03 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ template<typename T>
 Array<T>::~Array()	{delete[] elements;}
 
 template<typename T>
-Array<T>::Array(const Array& other) : elements(new T[other.arraySize]), _arraySize(other._arraySize)
+Array<T>::Array(const Array& other) : elements(new T[other._arraySize]), _arraySize(other._arraySize)
 {
 	for (size_t i = 0; i < other._arraySize; i++)
 		elements[i] = other.elements[i];
