@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/06/26 12:22:07 by asfletch         ###   ########.fr        #
+#    Updated: 2024/06/26 15:11:26 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS = main.cpp
 OBJ_DIR = obj
 SRC_DIR = src/
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
-DEPS = $(addprefix $(SRC_DIR)/, $(SRCS)) ./includes/iter.hpp
+DEPS = $(addprefix $(SRC_DIR)/, $(SRCS)) ./includes/Array.hpp
 
 NAME = ex02
 
