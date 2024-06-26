@@ -12,7 +12,7 @@ void	stringArray()
 	Array<std::string> stringArrayCopy = stringArray;
 	try
 	{
-		for (size_t i = 0; i < stringArray.size() + 1; i++)
+		for (size_t i = 0; i < stringArray.size(); i++)
 			std::cout << stringArray[i] << std::endl;
 	}
 	catch(const std::exception& e)
@@ -22,7 +22,7 @@ void	stringArray()
 	std::cout << "TEST COPY CONSTRUCTOR" << std::endl;
 	try
 	{
-		for (size_t i = 0; i < stringArrayCopy.size() + 1; i++)
+		for (size_t i = 0; i < stringArrayCopy.size(); i++)
 			std::cout << stringArrayCopy[i] << std::endl;
 	}
 	catch(const std::exception& e)
@@ -30,8 +30,8 @@ void	stringArray()
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << "TEST COPY ASIGNMENT" << std::endl;
-	std::cout << "Try to run" << std::endl;
 	Array<std::string> stringArrayAsignment;
+	std::cout << "Try to run" << std::endl;
 	try
 	{
 		for (size_t i = 0; i < stringArrayAsignment.size(); i++)
@@ -41,7 +41,7 @@ void	stringArray()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << "COPY ASIGN" << std::endl;
+	std::cout << "COPY ASSIGN" << std::endl;
 	stringArrayAsignment = stringArray;
 	try
 	{
