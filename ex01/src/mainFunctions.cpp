@@ -6,11 +6,11 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:18:24 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/28 15:18:46 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/28 15:48:44 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Span.cpp"
+#include "Span.hpp"
 
 void	Span::addNumber(int n)
 {
@@ -29,7 +29,7 @@ unsigned int	Span::shortestSpan()
 	{
 		unsigned int	diff = *(iter + 1) - *iter;
 		if (diff < minDiff)
-			diff = minDiff;
+			minDiff = diff;
 	}
 	std::cout << "Minimum difference is: " << minDiff << std::endl;
 	return (minDiff);

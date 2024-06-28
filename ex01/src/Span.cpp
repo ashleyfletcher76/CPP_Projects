@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:12:04 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/28 15:20:42 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/28 15:36:29 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,6 @@ Span& Span::operator=(const Span& other)
 	return(*this);
 }
 
-template<typename inputIterator>
-void	addNumbers(inputIterator begin, inputIterator end)
-{
-	for(inputIterator iter = begin; iter != end; iter++)
-		addNumber(*iter);
-}
-
 const std::vector<int>& Span::getNums() const {return (_nums);}
 
-const unsigned int Span::getMaxN() const {return (_maxN);}
+unsigned int Span::getMaxN() const {return (_maxN);}

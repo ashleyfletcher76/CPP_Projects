@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:09:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/28 15:17:46 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/28 15:36:45 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,14 @@ class Span
 		unsigned int	longestSpan();
 
 		const std::vector<int>& getNums() const;
-		const unsigned int getMaxN() const;
+		unsigned int getMaxN() const;
 
 		template<typename inputIterator>
-		void	addNumbers(inputIterator begin, inputIterator end);
+		void	addNumbers(inputIterator begin, inputIterator end)
+		{
+			for(inputIterator iter = begin; iter != end; iter++)
+				addNumber(*iter);
+		}
 
 		class tooManyValuesException : public std::exception{
 			public:
