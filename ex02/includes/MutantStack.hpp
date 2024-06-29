@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:51:07 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/28 16:28:14 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/29 12:33:36 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,28 @@
 #include <list>
 #include <algorithm>
 #include <exception>
+#include <stack>
 
 template <typename T>
 class MutantStack : public std::stack<T>
 {
 	private:
 
-
 	public:
 		MutantStack();
 		~MutantStack();
 		MutantStack(const MutantStack&);
 		MutantStack& operator=(const MutantStack&);
+
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
+
+		iterator begin();
+		iterator end();
+		reverse_iterator rbegin();
+		reverse_iterator rend();
 };
 
-template <typename T>
-MutantStack<T>::MutantStack() {}
-
-template <typename T>
-MutantStack<T>::~MutantStack() {}
-
-template <typename T>
-MutantStack<T>::MutantStack(const MutantStack<T>&) {}
-
-template <typename T>
-MutantStack<T>& MutantStack::operator=(const MutantStack<T>&) {return(*this);}
+#include "MutantStack.tpp"
 
 #endif
