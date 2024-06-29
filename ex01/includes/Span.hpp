@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:09:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/29 15:02:41 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:20:27 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <list>
 #include <algorithm>
 #include <exception>
+#include <limits>
 
 class Span
 {
