@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:51:07 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/29 12:33:36 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/29 14:45:31 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ class MutantStack : public std::stack<T>
 	public:
 		MutantStack();
 		~MutantStack();
-		MutantStack(const MutantStack&);
-		MutantStack& operator=(const MutantStack&);
+		MutantStack(const MutantStack& other);
+		MutantStack& operator=(const MutantStack& other);
 
 		typedef typename std::stack<T>::container_type::iterator iterator;
 		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
 
-		iterator begin();
-		iterator end();
-		reverse_iterator rbegin();
-		reverse_iterator rend();
+		iterator			begin();
+		iterator			end();
+		reverse_iterator	rbegin();
+		reverse_iterator	rend();
 };
 
 #include "MutantStack.tpp"
