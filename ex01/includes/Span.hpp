@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:09:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/28 15:36:45 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:02:41 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Span
 		std::vector<int>	_nums;
 
 	public:
-		//Span();
+		Span();
 		Span(unsigned int num);
 		~Span();
 		Span(const Span& other);
@@ -36,8 +36,8 @@ class Span
 		unsigned int	shortestSpan();
 		unsigned int	longestSpan();
 
-		const std::vector<int>& getNums() const;
-		unsigned int getMaxN() const;
+		const std::vector<int>&	getNums() const;
+		unsigned int			getMaxN() const;
 
 		template<typename inputIterator>
 		void	addNumbers(inputIterator begin, inputIterator end)

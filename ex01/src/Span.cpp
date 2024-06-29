@@ -6,11 +6,13 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:12:04 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/28 15:36:29 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:02:55 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+
+Span::Span() : _maxN(0) {}
 
 Span::Span(unsigned int num) : _maxN(num) {}
 
