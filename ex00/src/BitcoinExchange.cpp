@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:11:17 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/17 18:35:13 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/17 19:08:14 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ BitcoinExchange::BitcoinExchange() {}
 BitcoinExchange::~BitcoinExchange() {}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : _btcPrices(other._btcPrices), _argv(other._argv),
-_amount(other._amount) {}
+_date(other._date), _amount(other._amount) {}
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 {
@@ -25,6 +25,7 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 	{
 		_btcPrices = other._btcPrices;
 		_argv = other._argv;
+		_date = other._date;
 		_amount = other._amount;
 	}
 	return(*this);
@@ -48,7 +49,6 @@ int	BitcoinExchange::readDatabase()
 		return (1);
 	}
 	std::string line;
-
 	while(std::getline(database, line))
 	{
 		std::string date;
@@ -76,12 +76,12 @@ int	BitcoinExchange::readInput()
 	}
 	while(std::getline(input, line))
 	{
-		takeAmount(line);
+		splitInput(line);
+		if (checkValues() == 1)
+			continue ;
 		std::map<std::string, double>::iterator iter = _btcPrices.find(_date);
 		if (iter != _btcPrices.end())
-		{
 			calculateExchange(_date, iter->second);
-		}
 		else
 		{
 			iter = _btcPrices.lower_bound(_date);
@@ -97,7 +97,7 @@ int	BitcoinExchange::readInput()
 	return (0);
 }
 
-void	BitcoinExchange::takeAmount(std::string& line)
+void	BitcoinExchange::splitInput(std::string& line)
 {
 	std::size_t pos = line.find('|');
 	if (pos != std::string::npos)
@@ -109,6 +109,50 @@ void	BitcoinExchange::takeAmount(std::string& line)
 		_amount = std::strtof(value.c_str(), NULL);
 		//std::cout << "Amount: " << _amount << "." << std::endl;
 	}
+}
+
+int	BitcoinExchange::checkValues()
+{
+	if (_amount < INT_MIN)
+	{
+		std::cerr << "Error: too small a number." << std::endl;
+		return (1);
+	}
+	else if (_amount > INT_MAX)
+	{
+		std::cerr << "Error: too large a number." << std::endl;
+		return (1);
+	}
+	std::size_t pos1 = _date.find('-');
+	if (pos1 == std::string::npos) return (1);
+	std::size_t pos2 = _date.find('-', pos1 + 1);
+	if (pos2 == std::string::npos) return (1);
+	std::string year = _date.substr(0, pos1);
+	std::string month = _date.substr(pos1 + 1, pos2 - pos1 - 1);
+	std::string day = _date.substr(pos2 + 1);
+	int y = std::atoi(year.c_str());
+	int m = std::atoi(month.c_str());
+	int d = std::atoi(day.c_str());
+	if (m < 1 || m > 12 || d < 1 || d > 31)
+	{
+		std::cerr << "Error: bad input" << _date << std::endl;
+		return (1);
+	}
+	if ((d > 30) && (m == 04 || m == 06 || m == 9 || m == 11))
+	{
+		std::cerr << "Error: bad input" << _date << std::endl;
+		return (1);
+	}
+	if (m == 2)
+	{
+		bool leap = (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
+		if (d > 29 || (d == 29 != leap))
+		{
+			std::cerr << "Error: bad input" << _date << std::endl;
+			return (1);
+		}
+	}
+	return (0);
 }
 
 void	BitcoinExchange::calculateExchange(const std::string& date, float rate)
