@@ -6,7 +6,7 @@
 #    By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 10:21:25 by asfletch          #+#    #+#              #
-#    Updated: 2024/07/17 13:13:46 by asfletch         ###   ########.fr        #
+#    Updated: 2024/07/17 15:17:17 by asfletch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ COLOUR_END = \033[0m
 CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I./includes/ -g -std=c++98 -fsanitize=address -fsanitize=undefined
-SRCS = main.cpp
+SRCS = main.cpp BitcoinExchange.cpp
 OBJ_DIR = obj
 SRC_DIR = src/
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
-DEPS = $(addprefix $(SRC_DIR)/, $(SRCS)) ./includes/MutantStack.hpp ./includes/MutantStack.tpp
+DEPS = $(addprefix $(SRC_DIR)/, $(SRCS)) ./includes/BitcoinExchange.hpp
 
 NAME = btc
 
