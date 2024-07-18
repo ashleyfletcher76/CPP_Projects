@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:11:17 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/18 12:38:41 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:57:52 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ void	BitcoinExchange::splitInput(std::string& line)
 	{
 		_date = line.substr(0, pos - 1);
 		_date.erase(_date.find_last_not_of("\n\r\t") + 1);
-		_originAmount = line.substr(pos + 1);
-		_amount = std::strtof(_originAmount.c_str(), NULL);
+		std::string value = line.substr(pos + 1);
+		_amount = std::strtof(value.c_str(), NULL);
 	}
 	else
 	{
