@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:08:09 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/17 19:07:22 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:57:01 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <map>
 #include <string>
 #include <cstdlib>
+#include <limits>
 
 class BitcoinExchange
 {
@@ -27,11 +28,11 @@ class BitcoinExchange
 		std::string _argv;
 		std::string	_date;
 		float		_amount;
-		// int			_flag;
 		int		readDatabase();
 		int		readInput();
 		void	splitInput(std::string& line);
-		int		checkValues();
+		int		checkAmount();
+		int		checkDate();
 		void	calculateExchange(const std::string& date, float rate);
 
 	public:

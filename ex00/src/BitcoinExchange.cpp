@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:11:17 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/17 19:08:14 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:55:31 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,25 @@ int	BitcoinExchange::readInput()
 	}
 	while(std::getline(input, line))
 	{
+		_amount = 0;
 		splitInput(line);
-		if (checkValues() == 1)
+		if (checkDate() == 1)
+			continue ;
+		if (checkAmount() == 1)
 			continue ;
 		std::map<std::string, double>::iterator iter = _btcPrices.find(_date);
 		if (iter != _btcPrices.end())
 			calculateExchange(_date, iter->second);
 		else
 		{
+			std::string& originDate = _date;
 			iter = _btcPrices.lower_bound(_date);
 			if (iter == _btcPrices.begin())
 				std::cout << "No date available." << std::endl;
 			else
 			{
 				--iter;
-				calculateExchange(iter->first, iter->second);
+				calculateExchange(originDate, iter->second);
 			}
 		}
 	}
@@ -104,18 +108,22 @@ void	BitcoinExchange::splitInput(std::string& line)
 	{
 		_date = line.substr(0, pos - 1);
 		_date.erase(_date.find_last_not_of("\n\r\t") + 1);
-		//std::cout << "Date: " << _date << "." << std::endl;
 		std::string value = line.substr(pos + 1);
 		_amount = std::strtof(value.c_str(), NULL);
-		//std::cout << "Amount: " << _amount << "." << std::endl;
+		// std::cout << "Parsed Date: " << _date << ", Parsed Amount: " << _amount << std::endl;
+	}
+	else
+	{
+		_date = line.substr(0, pos - 1);
+		_date.erase(_date.find_last_not_of("\n\r\t") + 1);
 	}
 }
 
-int	BitcoinExchange::checkValues()
+int	BitcoinExchange::checkAmount()
 {
-	if (_amount < INT_MIN)
+	if (_amount < 0)
 	{
-		std::cerr << "Error: too small a number." << std::endl;
+		std::cerr << "Error: not a positive number." << std::endl;
 		return (1);
 	}
 	else if (_amount > INT_MAX)
@@ -123,6 +131,11 @@ int	BitcoinExchange::checkValues()
 		std::cerr << "Error: too large a number." << std::endl;
 		return (1);
 	}
+	return (0);
+}
+
+int	BitcoinExchange::checkDate()
+{
 	std::size_t pos1 = _date.find('-');
 	if (pos1 == std::string::npos) return (1);
 	std::size_t pos2 = _date.find('-', pos1 + 1);
@@ -135,12 +148,12 @@ int	BitcoinExchange::checkValues()
 	int d = std::atoi(day.c_str());
 	if (m < 1 || m > 12 || d < 1 || d > 31)
 	{
-		std::cerr << "Error: bad input" << _date << std::endl;
+		std::cerr << "Error: bad input => " << _date << std::endl;
 		return (1);
 	}
 	if ((d > 30) && (m == 04 || m == 06 || m == 9 || m == 11))
 	{
-		std::cerr << "Error: bad input" << _date << std::endl;
+		std::cerr << "Error: bad input => " << _date << std::endl;
 		return (1);
 	}
 	if (m == 2)
@@ -148,7 +161,7 @@ int	BitcoinExchange::checkValues()
 		bool leap = (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
 		if (d > 29 || (d == 29 != leap))
 		{
-			std::cerr << "Error: bad input" << _date << std::endl;
+			std::cerr << "Error: bad input => " << _date << std::endl;
 			return (1);
 		}
 	}
