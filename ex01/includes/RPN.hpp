@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:53:51 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/18 15:39:56 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/18 16:35:58 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class RPN
 {
 	private:
 		std::stack<int> _nums;
-		void	processTokens(const std::string& expression);
+		void	processCalculation(const std::string& expression);
 		bool	isOperator(const std::string& token);
 		int		applyOperation(const std::string& operation, int num1, int num2);
 
