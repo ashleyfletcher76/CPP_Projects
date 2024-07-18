@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:11:17 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/18 09:55:31 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:38:41 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,6 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 		_amount = other._amount;
 	}
 	return(*this);
-}
-
-void	BitcoinExchange::beginProcess(const std::string& file)
-{
-	_argv = file;
-	if (readDatabase() == 1)
-		return ;
-	if (readInput() == 1)
-		return ;
 }
 
 int	BitcoinExchange::readDatabase()
@@ -77,6 +68,7 @@ int	BitcoinExchange::readInput()
 	while(std::getline(input, line))
 	{
 		_amount = 0;
+		_flag = 0;
 		splitInput(line);
 		if (checkDate() == 1)
 			continue ;
@@ -108,68 +100,36 @@ void	BitcoinExchange::splitInput(std::string& line)
 	{
 		_date = line.substr(0, pos - 1);
 		_date.erase(_date.find_last_not_of("\n\r\t") + 1);
-		std::string value = line.substr(pos + 1);
-		_amount = std::strtof(value.c_str(), NULL);
-		// std::cout << "Parsed Date: " << _date << ", Parsed Amount: " << _amount << std::endl;
+		_originAmount = line.substr(pos + 1);
+		_amount = std::strtof(_originAmount.c_str(), NULL);
 	}
 	else
 	{
 		_date = line.substr(0, pos - 1);
 		_date.erase(_date.find_last_not_of("\n\r\t") + 1);
+		_flag = 1;
 	}
-}
-
-int	BitcoinExchange::checkAmount()
-{
-	if (_amount < 0)
-	{
-		std::cerr << "Error: not a positive number." << std::endl;
-		return (1);
-	}
-	else if (_amount > INT_MAX)
-	{
-		std::cerr << "Error: too large a number." << std::endl;
-		return (1);
-	}
-	return (0);
-}
-
-int	BitcoinExchange::checkDate()
-{
-	std::size_t pos1 = _date.find('-');
-	if (pos1 == std::string::npos) return (1);
-	std::size_t pos2 = _date.find('-', pos1 + 1);
-	if (pos2 == std::string::npos) return (1);
-	std::string year = _date.substr(0, pos1);
-	std::string month = _date.substr(pos1 + 1, pos2 - pos1 - 1);
-	std::string day = _date.substr(pos2 + 1);
-	int y = std::atoi(year.c_str());
-	int m = std::atoi(month.c_str());
-	int d = std::atoi(day.c_str());
-	if (m < 1 || m > 12 || d < 1 || d > 31)
-	{
-		std::cerr << "Error: bad input => " << _date << std::endl;
-		return (1);
-	}
-	if ((d > 30) && (m == 04 || m == 06 || m == 9 || m == 11))
-	{
-		std::cerr << "Error: bad input => " << _date << std::endl;
-		return (1);
-	}
-	if (m == 2)
-	{
-		bool leap = (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
-		if (d > 29 || (d == 29 != leap))
-		{
-			std::cerr << "Error: bad input => " << _date << std::endl;
-			return (1);
-		}
-	}
-	return (0);
 }
 
 void	BitcoinExchange::calculateExchange(const std::string& date, float rate)
 {
 	float	exchange = _amount * rate;
-	std::cout << date << " => " << _amount << " = " << exchange << std::endl;
+	std::ostringstream oss;
+	if (exchange == static_cast<int>(exchange))
+		oss << std::fixed << std::setprecision(0) << exchange;
+	else
+	{
+		oss << std::fixed << std::setprecision(2) << exchange;
+		std::string exchangeStr = oss.str();
+		if (exchangeStr	.find('.') != std::string::npos)
+		{
+			exchangeStr.erase(exchangeStr.find_last_not_of('0') + 1, std::string::npos);
+			if (exchangeStr[exchangeStr.size() - 1] == '.')
+				exchangeStr.erase(exchangeStr.size() - 1);
+		}
+		oss.str("");
+		oss << exchangeStr;
+	}
+	std::string formatted = oss.str();
+	std::cout << date << " => " << _amount << " = " << formatted << std::endl;
 }

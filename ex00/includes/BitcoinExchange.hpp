@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:08:09 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/18 09:57:01 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:39:06 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 #include <map>
 #include <string>
 #include <cstdlib>
-#include <limits>
+#include <climits>
+#include <iomanip>
+#include <sstream>
 
 class BitcoinExchange
 {
@@ -27,7 +29,9 @@ class BitcoinExchange
 		std::map<std::string, double> _btcPrices;
 		std::string _argv;
 		std::string	_date;
+		std::string	_originAmount;
 		float		_amount;
+		int			_flag;
 		int		readDatabase();
 		int		readInput();
 		void	splitInput(std::string& line);
