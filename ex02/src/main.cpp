@@ -6,11 +6,32 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:06:15 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 12:43:57 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/19 15:57:39 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+void	PmergeMe::printBegin(const std::string& argv) const
+{
+	std::cout << "Before: ";
+	std::istringstream iss(argv);
+	int num;
+	std::size_t count = 0;
+	while (iss >> num)
+	{
+		if (count >= 5)
+		{
+			std::cout << "...";
+			break ;
+		}
+		if (count > 0)
+			std::cout << " ";
+		std::cout << num;
+		++count;
+	}
+	std::cout << std::endl;
+}
 
 int	main(int argc, char **argv)
 {
@@ -28,13 +49,22 @@ int	main(int argc, char **argv)
 				oss << " ";
 			oss << argv[i];
 		}
-		clock_t start = clock();
-		PmergeMe sorter;
-		sorter.executeVec(oss.str());
-		clock_t end = clock();
-		double duration = double(end - start) / CLOCKS_PER_SEC * 1e6;
+		std::string input = oss.str()
+;		clock_t startVec = clock();
+		PmergeMe _sorterVec;
+		_sorterVec.printBegin(input);
+		_sorterVec.executeVec(input);
+		clock_t endVec = clock();
+		double durationVec = double(endVec - startVec) / CLOCKS_PER_SEC * 1e6;
 		std::cout << "Time to process a range of " << argc - 1
-			<< " elements with std::vector : " << duration << " us" <<std::endl;
+			<< " elements with std::vector : " << durationVec << " us" <<std::endl;
+		clock_t startList = clock();
+		PmergeMe sorterList;
+		sorterList.executeList(input);
+		clock_t endList = clock();
+		double durationList = double(endList - startList) / CLOCKS_PER_SEC * 1e6;
+		std::cout << "Time to process a range of " << argc - 1
+			<< " elements with std::list : " << durationList << " us" <<std::endl;
 	}
 	catch(const std::exception& e)
 	{
