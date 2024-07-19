@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/18 17:06:15 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 12:08:37 by asfletch         ###   ########.fr       */
+/*   Created: 2024/07/19 11:52:02 by asfletch          #+#    #+#             */
+/*   Updated: 2024/07/19 11:52:11 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-int	main(int argc, char **argv)
+void	PmergeMe::printVector(const std::vector<int>& vec)
 {
-	if (argc < 2)
-	{
-		std::cout << "Error: Not a valid argument count." << std::endl;
-		return (1);
-	}
-	try
-	{
-		PmergeMe sorter;
-		sorter.executeVec(argv[1]);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	return (0);
+	for(std::vector<int>::const_iterator iter = vec.begin(); iter != vec.end(); iter++)
+		std::cout << *iter << " ";
+	std::cout << std::endl;
+}
+
+std::vector<int>::iterator PmergeMe::findInsertionPosition(std::vector<int>& sortedVec, int value)
+{
+	return (std::lower_bound(sortedVec.begin(), sortedVec.end(), value));
 }
