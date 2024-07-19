@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:06:15 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 12:08:37 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:30:14 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,15 @@ int	main(int argc, char **argv)
 	}
 	try
 	{
+		std::ostringstream oss;
+		for(int i = 1; i < argc; i++)
+		{
+			if (i > 1)
+				oss << " ";
+			oss << argv[i];
+		}
 		PmergeMe sorter;
-		sorter.executeVec(argv[1]);
+		sorter.executeVec(oss.str());
 	}
 	catch(const std::exception& e)
 	{

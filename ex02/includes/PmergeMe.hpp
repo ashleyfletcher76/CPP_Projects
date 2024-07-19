@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:02:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 12:03:18 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:37:00 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
+#include <exception>
 
 class PmergeMe
 {
