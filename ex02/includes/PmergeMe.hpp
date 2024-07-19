@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:02:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 15:56:31 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/19 17:21:00 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,23 @@
 class PmergeMe
 {
 	private:
-		// vector
+		// vector variables
 		std::vector<int> _sortedVec;
 		std::vector<std::pair<int, int> > _vecPairs;
 		std::vector<int> _vecNums;
+		// vector functions
 		std::vector<int>::iterator findInsertionPosition(std::vector<int>& sortedVec, int value);
 		void	printVector(const std::vector<int>& vec) const;
-		// list
+		void	makePairsVec();
+
+		// list variables
 		std::list<int> _sortedList;
 		std::list<std::pair<int, int> > _listPairs;
 		std::list<int> _listNums;
+		// list functions
 		std::list<int>::iterator findInsertionPosition(std::list<int>& sortedList, int value);
 		void	printList(const std::list<int>& list) const;
+		void	makePairsList();
 
 
 	public:

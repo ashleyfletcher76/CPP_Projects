@@ -6,11 +6,35 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:52:02 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 15:57:34 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/19 17:22:50 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+void	PmergeMe::makePairsVec()
+{
+	std::vector<int>::iterator iter = _vecNums.begin();
+	while(iter != _vecNums.end())
+	{
+		std::vector<int>::iterator nextIt = iter;
+		nextIt++;
+		if (nextIt != _vecNums.end())
+		{
+			if (*iter > *nextIt)
+				_vecPairs.push_back(std::make_pair(*nextIt, *iter));
+			else
+				_vecPairs.push_back(std::make_pair(*iter, *nextIt));
+			iter = nextIt;
+		}
+		else
+		{
+			_sortedVec.push_back(*iter);
+			break ;
+		}
+		iter++;
+	}
+}
 
 void	PmergeMe::executeVec(const std::string& argv)
 {
@@ -23,29 +47,17 @@ void	PmergeMe::executeVec(const std::string& argv)
 		_vecNums.push_back(num);
 	}
 	_vecPairs.reserve(_vecNums.size() / 2 + 1);
-	for(std::size_t i = 0; i < _vecNums.size(); i += 2)
-	{
-		if (i + 1 < _vecNums.size())
-		{
-			if (_vecNums[i] > _vecNums[i + 1])
-				_vecPairs.push_back(std::make_pair(_vecNums[i + 1], _vecNums[i]));
-			else
-				_vecPairs.push_back(std::make_pair(_vecNums[i], _vecNums[i + 1]));
-		}
-		else
-			_vecPairs.push_back(std::make_pair(_vecNums[i], _vecNums[i]));
-	}
+	makePairsVec();
 	_sortedVec.reserve(_vecNums.size());
 	for(std::vector<std::pair<int, int> >::iterator pairIt = _vecPairs.begin(); pairIt != _vecPairs.end(); pairIt++)
 	{
 		std::vector<int>::iterator pos1 = findInsertionPosition(_sortedVec, pairIt->first);
-		if (pos1 == _sortedVec.end() || *pos1 != pairIt->first)
+		// if (pos1 == _sortedVec.end() || *pos1 != pairIt->first)
 			_sortedVec.insert(pos1, pairIt->first);
 		std::vector<int>::iterator pos2 = findInsertionPosition(_sortedVec, pairIt->second);
-		if (pos2 == _sortedVec.end() || *pos2 != pairIt->second)
+		// if (pos2 == _sortedVec.end() || *pos2 != pairIt->second)
 			_sortedVec.insert(pos2, pairIt->second);
 	}
-	// printBegin(argv);
 	printVector(_sortedVec);
 }
 

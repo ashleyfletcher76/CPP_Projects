@@ -6,22 +6,14 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 12:59:21 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 15:28:36 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/19 17:21:58 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-void	PmergeMe::executeList(const std::string& argv)
+void	PmergeMe::makePairsList()
 {
-	std::istringstream iss(argv);
-	int	num;
-	while (iss >> num)
-	{
-		if (num < 0)
-			throw std::invalid_argument("Error: A negative number has been included.");
-		_listNums.push_back(num);
-	}
 	std::list<int>::iterator iter = _listNums.begin();
 	while(iter != _listNums.end())
 	{
@@ -33,22 +25,32 @@ void	PmergeMe::executeList(const std::string& argv)
 				_listPairs.push_back(std::make_pair(*nextIt, *iter));
 			else
 				_listPairs.push_back(std::make_pair(*iter, *nextIt));
-			iter++;
+			iter = nextIt;
 		}
 		else
-			_listPairs.push_back(std::make_pair(*iter, *iter));
+			_sortedList.push_back(*iter);
 		iter++;
 	}
+}
+
+void	PmergeMe::executeList(const std::string& argv)
+{
+	std::istringstream iss(argv);
+	int	num;
+	while (iss >> num)
+	{
+		if (num < 0)
+			throw std::invalid_argument("Error: A negative number has been included.");
+		_listNums.push_back(num);
+	}
+	makePairsList();
 	for(std::list<std::pair<int, int> >::iterator pairIt = _listPairs.begin(); pairIt != _listPairs.end(); pairIt++)
 	{
 		std::list<int>::iterator pos1 = findInsertionPosition(_sortedList, pairIt->first);
-		if (pos1 == _sortedList.end() || *pos1 != pairIt->first)
-			_sortedList.insert(pos1, pairIt->first);
+		_sortedList.insert(pos1, pairIt->first);
 		std::list<int>::iterator pos2 = findInsertionPosition(_sortedList, pairIt->second);
-		if (pos2 == _sortedList.end() || *pos2 != pairIt->second)
-			_sortedList.insert(pos2, pairIt->second);
+		_sortedList.insert(pos2, pairIt->second);
 	}
-	// printBegin(argv);
 	printList(_sortedList);
 }
 
@@ -56,7 +58,7 @@ std::list<int>::iterator PmergeMe::findInsertionPosition(std::list<int>& sortedL
 {
 	for(std::list<int>::iterator iter = sortedList.begin(); iter != sortedList.end(); iter++)
 	{
-		if (*iter >= value)
+		if (*iter > value)
 			return (iter);
 	}
 	return (sortedList.end());
