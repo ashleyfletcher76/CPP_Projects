@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:02:55 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 12:37:00 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:50:53 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <sstream>
 #include <exception>
+#include <ctime>
 
 class PmergeMe
 {
@@ -26,7 +27,7 @@ class PmergeMe
 		std::vector<std::pair<int, int> > _pairs;
 		std::vector<int> _nums;
 		std::vector<int>::iterator findInsertionPosition(std::vector<int>& sortedVec, int value);
-		void	printVector(const std::vector<int>& vec);
+		void	printVector(const std::vector<int>& vec) const;
 
 	public:
 		PmergeMe();

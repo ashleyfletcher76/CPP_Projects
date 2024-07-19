@@ -6,13 +6,13 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:52:02 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 12:37:22 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:50:58 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-void	PmergeMe::printVector(const std::vector<int>& vec)
+void	PmergeMe::printVector(const std::vector<int>& vec) const
 {
 	std::cout << "After: ";
 	for(std::vector<int>::const_iterator iter = vec.begin(); iter != vec.end(); iter++)
