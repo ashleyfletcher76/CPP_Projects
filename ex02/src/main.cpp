@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:06:15 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/20 15:00:20 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/20 15:12:02 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 bool isNumber(const std::string& str)
 {
-	for (std::string::const_iterator it = str.begin(); it != str.end(); it++)
+	for (std::string::const_iterator iter = str.begin(); iter != str.end(); iter++)
 	{
-		if (!std::isdigit(*it))
+		if (!std::isdigit(*iter))
 			return (false);
 	}
 	return (true);
