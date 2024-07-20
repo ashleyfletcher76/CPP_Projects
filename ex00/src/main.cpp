@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:16:28 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/18 10:47:12 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/20 12:03:00 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void	testSwitch(int num)
 			break ;
 		case 2:
 			btc.beginProcess("random.txt");
+			break ;
+		default:
+			std::cerr << "Invalid argument selected." << std::endl;
 			break ;
 	}
 }

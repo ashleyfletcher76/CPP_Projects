@@ -6,11 +6,22 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:06:15 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 17:32:25 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/20 15:00:20 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+
+bool isNumber(const std::string& str)
+{
+	for (std::string::const_iterator it = str.begin(); it != str.end(); it++)
+	{
+		if (!std::isdigit(*it))
+			return (false);
+	}
+	return (true);
+}
 
 void	PmergeMe::printBegin(const std::string& argv) const
 {
@@ -74,10 +85,20 @@ void	beginVec(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	if (argc < 2)
+	if (argc < 2 || argc > 3001)
 	{
 		std::cout << "Error: Not a valid argument count." << std::endl;
 		return (1);
+	}
+	for (int i = 1; i < argc; ++i)
+	{
+		std::string arg = argv[i];
+		arg.erase(0, arg.find_first_not_of(' '));
+		arg.erase(arg.find_last_not_of(' ') + 1);
+		if (!isNumber(arg)) {
+			std::cout << "Error: invalid input. All arguments must be positive integers." << std::endl;
+			return (1);
+		}
 	}
 	try
 	{

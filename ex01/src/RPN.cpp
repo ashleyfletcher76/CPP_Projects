@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:53:27 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/18 16:43:23 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/20 15:07:40 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,65 +33,70 @@ int	RPN::calculate(const std::string& str)
 		char c = str[i];
 		if (isdigit(c))
 		{
-			int	num = c - '0';
-			_nums.push(num);
+			_nums.push(c - '0');
+			std::cout << "Pushed: " << (c - '0') << std::endl;
 		}
-		else if (isOperator(std::string(1, c)))
+		else if (isOperator(c))
 		{
-			// if (!token.empty())
-			// {
-			// 	processCalculation(token);
-			// 	token = "";
-			// }
-			processCalculation(std::string(1, c));
+			std::cout << "Operator: " << c << std::endl;
+			processCalculation(c);
 		}
 		else if (isspace(c))
 			continue ;
 		else
-			throw std::runtime_error("Error: invalid char");
+			throw std::runtime_error("Error");
 	}
-	if (!token.empty())
-		processCalculation(token);
 	if (_nums.size() != 1)
 		throw std::runtime_error("Error: invalid, too many nums leftover");
 	return (_nums.top());
 }
 
-void	RPN::processCalculation(const std::string& expression)
+void	RPN::processCalculation(char operation)
 {
-	if (isOperator(expression))
+	if (_nums.size() < 2)
+		throw std::runtime_error("Error: not enough nums");
+	int	num2 = _nums.top();
+	_nums.pop();
+	int	num1 = _nums.top();
+	_nums.pop(); // temporarily available from previous pop
+	int	result = applyOperation(operation, num1, num2);
+	_nums.push(result);
+	std::stack<int> temp = _nums;
+	std::cout << "Stack state after applying " << operation << ": ";
+	while (!temp.empty())
 	{
-		if (_nums.size() < 2)
-			throw std::runtime_error("Error: not enough nums");
-		int	num2 = _nums.top();
-		_nums.pop();
-		int	num1 = _nums.top();
-		_nums.pop();
-		int	result = applyOperation(expression, num1, num2);
-		_nums.push(result);
+		std::cout << temp.top() << " ";
+		temp.pop();
 	}
-	else
-	{
-		int	num = std::atoi(expression.c_str());
-		_nums.push(num);
-		std::cout << num << std::endl;
-	}
+	std::cout << std::endl;
 }
 
-bool	RPN::isOperator(const std::string& token)
+bool	RPN::isOperator(char token)
 {
-	return (token == "+" || token == "-" || token == "*" || token == "/");
+	return (token == '+' || token == '-' || token == '*' || token == '/');
 }
 
-int		RPN::applyOperation(const std::string& operation, int num1, int num2)
+int		RPN::applyOperation(char operation, int num1, int num2)
 {
-	if (operation == "+")
-		return (num1 + num2);
-	if (operation == "-")
-		return (num1 - num2);
-	if (operation == "*")
-		return (num1 * num2);
-	if (operation == "/")
-		return (num1 / num2);
-	throw std::runtime_error("Error: unknown operation");
+	int	result;
+	switch (operation)
+	{
+		case '+':
+			result = num1 + num2;
+			break ;
+		case '-':
+			result = num1 - num2;
+			break ;
+		case '*':
+			result = num1 * num2;
+			break ;
+		case '/':
+			if (num2 == 0)
+				throw std::runtime_error("Error: division by zero");
+			result = num1 / num2;
+			break ;
+		default:
+			throw std::runtime_error("Error: unknown operation");
+	}
+	return (result);
 }

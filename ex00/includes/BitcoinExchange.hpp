@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:08:09 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/18 12:57:33 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/20 11:19:06 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@
 class BitcoinExchange
 {
 	private:
+		// variables
 		std::map<std::string, double> _btcPrices;
 		std::string _argv;
 		std::string	_date;
 		float		_amount;
 		int			_flag;
+		// functions
 		int		readDatabase();
 		int		readInput();
 		void	splitInput(std::string& line);

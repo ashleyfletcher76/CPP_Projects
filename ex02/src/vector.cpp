@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:52:02 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/19 17:22:50 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/20 14:22:55 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,9 @@ void	PmergeMe::executeVec(const std::string& argv)
 	for(std::vector<std::pair<int, int> >::iterator pairIt = _vecPairs.begin(); pairIt != _vecPairs.end(); pairIt++)
 	{
 		std::vector<int>::iterator pos1 = findInsertionPosition(_sortedVec, pairIt->first);
-		// if (pos1 == _sortedVec.end() || *pos1 != pairIt->first)
-			_sortedVec.insert(pos1, pairIt->first);
+		_sortedVec.insert(pos1, pairIt->first);
 		std::vector<int>::iterator pos2 = findInsertionPosition(_sortedVec, pairIt->second);
-		// if (pos2 == _sortedVec.end() || *pos2 != pairIt->second)
-			_sortedVec.insert(pos2, pairIt->second);
+		_sortedVec.insert(pos2, pairIt->second);
 	}
 	printVector(_sortedVec);
 }

@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:11:17 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/18 12:57:52 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/20 12:00:08 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ BitcoinExchange::BitcoinExchange() {}
 BitcoinExchange::~BitcoinExchange() {}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : _btcPrices(other._btcPrices), _argv(other._argv),
-_date(other._date), _amount(other._amount) {}
+_date(other._date), _amount(other._amount), _flag(other._flag) {}
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 {
@@ -27,6 +27,7 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 		_argv = other._argv;
 		_date = other._date;
 		_amount = other._amount;
+		_flag = other._flag;
 	}
 	return(*this);
 }
@@ -49,7 +50,7 @@ int	BitcoinExchange::readDatabase()
 		{
 			date = line.substr(0, pos);
 			price = std::strtod(line.substr(pos + 1).c_str(), NULL);
-			_btcPrices[date] = price;
+			_btcPrices[date] = price; // stores date and corresponding value together
 		}
 	}
 	database.close();
@@ -59,7 +60,7 @@ int	BitcoinExchange::readDatabase()
 int	BitcoinExchange::readInput()
 {
 	std::string line;
-	std::ifstream input(_argv.c_str());
+	std::ifstream input(_argv.c_str()); // input file stream
 	if (!input)
 	{
 		std::cerr << "Could not open input file." << std::endl;
@@ -100,6 +101,7 @@ void	BitcoinExchange::splitInput(std::string& line)
 	{
 		_date = line.substr(0, pos - 1);
 		_date.erase(_date.find_last_not_of("\n\r\t") + 1);
+		_date.erase(0, _date.find_first_not_of("\n\r\t"));
 		std::string value = line.substr(pos + 1);
 		_amount = std::strtof(value.c_str(), NULL);
 	}
@@ -107,6 +109,7 @@ void	BitcoinExchange::splitInput(std::string& line)
 	{
 		_date = line.substr(0, pos - 1);
 		_date.erase(_date.find_last_not_of("\n\r\t") + 1);
+		_date.erase(0, _date.find_first_not_of("\n\r\t"));
 		_flag = 1;
 	}
 }
@@ -116,20 +119,16 @@ void	BitcoinExchange::calculateExchange(const std::string& date, float rate)
 	float	exchange = _amount * rate;
 	std::ostringstream oss;
 	if (exchange == static_cast<int>(exchange))
-		oss << std::fixed << std::setprecision(0) << exchange;
+		oss << std::fixed << std::setprecision(0) << exchange; // set value with no decimal points
 	else
 	{
-		oss << std::fixed << std::setprecision(2) << exchange;
+		oss << std::fixed << std::setprecision(2) << exchange; // set to two
 		std::string exchangeStr = oss.str();
-		if (exchangeStr	.find('.') != std::string::npos)
-		{
-			exchangeStr.erase(exchangeStr.find_last_not_of('0') + 1, std::string::npos);
-			if (exchangeStr[exchangeStr.size() - 1] == '.')
-				exchangeStr.erase(exchangeStr.size() - 1);
-		}
+		exchangeStr.erase(exchangeStr.find_last_not_of('0') + 1, std::string::npos);
+		if (exchangeStr[exchangeStr.size() - 1] == '.')
+			exchangeStr.erase(exchangeStr.size() - 1); // removes last decimal if there is one
 		oss.str("");
 		oss << exchangeStr;
 	}
-	std::string formatted = oss.str();
-	std::cout << date << " => " << _amount << " = " << formatted << std::endl;
+	std::cout << date << " => " << _amount << " = " << oss.str() << std::endl;
 }

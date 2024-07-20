@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 09:58:10 by asfletch          #+#    #+#             */
-/*   Updated: 2024/07/18 12:39:50 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/20 12:01:02 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ int	BitcoinExchange::checkAmount()
 int	BitcoinExchange::checkDate()
 {
 	std::size_t pos1 = _date.find('-');
-	if (pos1 == std::string::npos) return (1);
+	if (pos1 == std::string::npos)
+		return (1);
 	std::size_t pos2 = _date.find('-', pos1 + 1);
-	if (pos2 == std::string::npos) return (1);
+	if (pos2 == std::string::npos)
+		return (1);
 	std::string year = _date.substr(0, pos1);
 	std::string month = _date.substr(pos1 + 1, pos2 - pos1 - 1);
 	std::string day = _date.substr(pos2 + 1);
