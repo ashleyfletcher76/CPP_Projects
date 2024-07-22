@@ -6,7 +6,7 @@
 /*   By: asfletch <asfletch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:50:34 by asfletch          #+#    #+#             */
-/*   Updated: 2024/06/24 15:29:59 by asfletch         ###   ########.fr       */
+/*   Updated: 2024/07/22 09:14:16 by asfletch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ double stringConversion(const std::string& toConvert)
 		return -std::numeric_limits<double>::infinity();
 	else if (toConvert == "nanf" || toConvert == "NaNf")
 		return std::numeric_limits<float>::quiet_NaN();
+	if (toConvert[toConvert.size() - 1] == 'f')
+	{
+		std::string str = toConvert.substr(0, toConvert.size() - 1);
+		double value;
+		std::stringstream ss(str);
+		if (!(ss >> value) || !ss.eof())
+			throw std::invalid_argument("Invalid argument!");
+		return (value);
+	}
 	double value;
 	std::stringstream ss(toConvert);
 	if (!(ss >> value) || !ss.eof())
