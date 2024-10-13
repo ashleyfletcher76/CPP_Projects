@@ -79,7 +79,7 @@ The **42 School C++ curriculum** is designed to provide a deep understanding of 
 To compile and test the projects, navigate to the corresponding module's directory and run the provided `Makefile`. The general process is as follows:
 
 ```bash
-git clone https://github.com/ashleyfletcher76/42-CPP-Modules.git
+git clone https://github.com/ashleyfletcher76/CPP_Projects.git
 cd 42-CPP-Modules/cppXX   # Replace cppXX with the appropriate module number
 make
 ./program_name            # Replace with the appropriate executable
